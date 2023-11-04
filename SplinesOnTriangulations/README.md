@@ -1,0 +1,1 @@
+Homeworks and the final project for the "Splines on Triangulations" course.

@@ -1,0 +1,1 @@
+My Seminar presentation, outlining the preliminary results that have later been [expanded](https://gitlab.com/e62Lab/public/2023_cp_iccs_stencil_size_effect).
