@@ -1,0 +1,1 @@
+Some of the solved exercises explained in my teaching duties (Was a teaching assistant for multivariable calculus for applied physics students).

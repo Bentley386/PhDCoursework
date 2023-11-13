@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.7) (preloaded format=
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./Izpiski.tex
-(Izpiski.tex
+**./KonzultacijeCAD.tex
+(KonzultacijeCAD.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-07-04>
 (C:\Users\spyro\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -270,8 +270,8 @@ Package bm Info: No bold for \U/msa/m/n, using \pmb.
 Package bm Info: No bold for \U/msb/m/n, using \pmb.
 LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 149.
 )
-(Izpiski.aux)
-\openout1 = `Izpiski.aux'.
+No file KonzultacijeCAD.aux.
+\openout1 = `KonzultacijeCAD.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
 LaTeX Font Info:    ... okay on input line 20.
@@ -361,8 +361,16 @@ Package pdftex.def Info: slike/logo.pdf  used on input line 26.
 
 {C:/Users/spyro/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./slike/logo
 .pdf>]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
 
+LaTeX Warning: Citation `iso1' on page 1 undefined on input line 56.
+
+
+LaTeX Warning: Citation `iso2' on page 1 undefined on input line 56.
+
+
+LaTeX Warning: Citation `pres' on page 1 undefined on input line 56.
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 61.
 
 (C:\Users\spyro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -373,9 +381,16 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 61.
 (C:\Users\spyro\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+
+LaTeX Warning: Citation `stabilnost' on page 1 undefined on input line 71.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 79--84
 
  []
+
+
+LaTeX Warning: Reference `fig:bezier' on page 1 undefined on input line 92.
 
 <Slike/Bezier.png, id=26, 1100.31075pt x 412.54124pt>
 File: Slike/Bezier.png Graphic file (type png)
@@ -387,7 +402,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 107--114
 
  []
 
-[2 <./Slike/Bezier.png>] [3]
+[2 <./Slike/Bezier.png>]
+
+LaTeX Warning: Citation `iso1' on page 3 undefined on input line 155.
+
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 175--179
 
  []
@@ -409,6 +428,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--196
  []
 
 
+LaTeX Warning: Citation `inrs' on page 4 undefined on input line 197.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 197--202
 
  []
@@ -419,6 +441,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 203--207
  []
 
 [4]
+
+LaTeX Warning: Reference `fig:pokritje' on page 5 undefined on input line 232.
+
 <Slike/inRS_pokritje.png, id=52, 970.12437pt x 286.57062pt>
 File: Slike/inRS_pokritje.png Graphic file (type png)
 <use Slike/inRS_pokritje.png>
@@ -430,6 +455,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 241--248
  []
 
 [5 <./Slike/inRS_pokritje.png>]
+
+LaTeX Warning: Reference `fig:pokritjeFino' on page 6 undefined on input line 2
+66.
+
 <Slike/inRS_pokritje_fino.png, id=58, 885.3075pt x 252.945pt>
 File: Slike/inRS_pokritje_fino.png Graphic file (type png)
 <use Slike/inRS_pokritje_fino.png>
@@ -440,15 +469,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 262--274
 
  []
 
+
+LaTeX Warning: Reference `fig:inRSrezultat' on page 6 undefined on input line 2
+77.
+
 <Slike/inRS_rezultat.png, id=59, 921.4425pt x 285.065pt>
 File: Slike/inRS_rezultat.png Graphic file (type png)
 <use Slike/inRS_rezultat.png>
 Package pdftex.def Info: Slike/inRS_rezultat.png  used on input line 281.
 (pdftex.def)             Requested size: 375.80544pt x 116.25974pt.
 [6 <./Slike/inRS_pokritje_fino.png> <./Slike/inRS_rezultat.png>]
+
+LaTeX Warning: Citation `divg' on page 7 undefined on input line 294.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 294--298
 
  []
+
+
+LaTeX Warning: Reference `fig:divg' on page 7 undefined on input line 299.
 
 <Slike/divg.png, id=66, 977.15062pt x 221.32687pt>
 File: Slike/divg.png Graphic file (type png)
@@ -461,22 +501,39 @@ Underfull \hbox (badness 10000) in paragraph at lines 309--313
  []
 
 
+LaTeX Warning: Citation `sdivg' on page 7 undefined on input line 315.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 315--319
 
  []
 
 [7 <./Slike/divg.png>]
+
+LaTeX Warning: Reference `fig:sdivg' on page 8 undefined on input line 328.
+
 <Slike/sdivg.png, id=72, 733.23938pt x 344.78813pt>
 File: Slike/sdivg.png Graphic file (type png)
 <use Slike/sdivg.png>
 Package pdftex.def Info: Slike/sdivg.png  used on input line 332.
 (pdftex.def)             Requested size: 375.80544pt x 176.71294pt.
+
+LaTeX Warning: Reference `fig:sdivgRoman' on page 8 undefined on input line 337
+.
+
 <Slike/sdivgRoman.png, id=73, 650.93187pt x 305.64188pt>
 File: Slike/sdivgRoman.png Graphic file (type png)
 <use Slike/sdivgRoman.png>
 Package pdftex.def Info: Slike/sdivgRoman.png  used on input line 341.
 (pdftex.def)             Requested size: 375.80544pt x 176.4609pt.
- [8 <./Slike/sdivg.png>]
+[8 <./Slike/sdivg.png>]
+
+LaTeX Warning: Citation `nurbsdivg' on page 9 undefined on input line 348.
+
+
+LaTeX Warning: Reference `fig:nurbsmultipatch' on page 9 undefined on input lin
+e 350.
+
 <Slike/nurbsmultipatch.png, id=79, 715.17188pt x 191.21437pt>
 File: Slike/nurbsmultipatch.png Graphic file (type png)
 <use Slike/nurbsmultipatch.png>
@@ -486,6 +543,10 @@ Package pdftex.def Info: Slike/nurbsmultipatch.png  used on input line 354.
 Underfull \hbox (badness 10000) in paragraph at lines 359--363
 
  []
+
+
+LaTeX Warning: Reference `fig:supersampling' on page 9 undefined on input line 
+366.
 
 <Slike/supersampling1.png, id=80, 436.63126pt x 363.15675pt>
 File: Slike/supersampling1.png Graphic file (type png)
@@ -498,6 +559,15 @@ File: Slike/supersampling2.png Graphic file (type png)
 Package pdftex.def Info: Slike/supersampling2.png  used on input line 373.
 (pdftex.def)             Requested size: 225.4804pt x 184.14914pt.
 [9 <./Slike/sdivgRoman.png> <./Slike/nurbsmultipatch.png>]
+
+LaTeX Warning: Reference `fig:primeri' on page 10 undefined on input line 379.
+
+
+LaTeX Warning: Reference `fig:cog' on page 10 undefined on input line 379.
+
+
+LaTeX Warning: Reference `fig:geko' on page 10 undefined on input line 379.
+
 <Slike/primeri.png, id=87, 708.6475pt x 405.01312pt>
 File: Slike/primeri.png Graphic file (type png)
 <use Slike/primeri.png>
@@ -508,43 +578,53 @@ File: Slike/cog.png Graphic file (type png)
 <use Slike/cog.png>
 Package pdftex.def Info: Slike/cog.png  used on input line 392.
 (pdftex.def)             Requested size: 281.85587pt x 127.84048pt.
- [10 <./Slike/supersampling1.png> <./Slike/supersampling2.png> <./Slike/primeri
-.png>]
+[10 <./Slike/supersampling1.png> <./Slike/supersampling2.png> <./Slike/primeri.
+png>]
 <Slike/geko.png, id=95, 1087.09294pt x 744.76137pt>
 File: Slike/geko.png Graphic file (type png)
 <use Slike/geko.png>
 Package pdftex.def Info: Slike/geko.png  used on input line 401.
 (pdftex.def)             Requested size: 234.8775pt x 160.9047pt.
- [11 <./Slike/cog.png> <./Slike/geko.png (PNG copy)>] [12] [13] (Izpiski.aux) )
- 
+ [11 <./Slike/cog.png> <./Slike/geko.png (PNG copy)>]
+
+LaTeX Warning: Reference `permanence' on page 12 undefined on input line 466.
+
+[12] [13] (KonzultacijeCAD.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6939 strings out of 478338
- 114252 string characters out of 2836700
- 438469 words of memory out of 3000000
+ 6937 strings out of 478338
+ 114246 string characters out of 2836700
+ 438347 words of memory out of 3000000
  25255 multiletter control sequences out of 15000+600000
  480815 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,16n,77p,914b,402s stack positions out of 10000i,1000n,20000p,200000b,80000s
- <C:\Users\spyro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm10
-00.pk><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts
-/cm/cmbx10.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmbx12.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmex10.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/spyro/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/spyro/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/spyro/AppDa
-ta/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/spy
-ro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:
-/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10
-.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr6.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/p
-ublic/amsfonts/cm/cmr7.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/
-type1/public/amsfonts/cm/cmr8.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/spyro/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/spyro/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Izpiski.pdf (14 pages, 2453563 bytes).
+ 72i,16n,77p,922b,402s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ <C:\Users\spyro\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
+1000.pk><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx12.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/t
+ype1/public/amsfonts/cm/cmex10.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/spyro/AppData/Local/Progr
+ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/spyro/AppData/Loc
+al/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/spyro/App
+Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/s
+pyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmib10.pfb><
+C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr
+10.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr12.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1/public
+/amsfonts/cm/cmr6.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr7.pfb><C:/Users/spyro/AppData/Local/Programs/MiKTeX/font
+s/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/spyro/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/spyro/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/spyro/AppData/Lo
+cal/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on KonzultacijeCAD.pdf (14 pages, 2454154 bytes).
 PDF statistics:
  177 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
