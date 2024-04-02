@@ -1,0 +1,103 @@
+\documentclass{article}
+
+
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[slovene]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{romannum}
+\usepackage{physics}
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+\geometry{margin=1in}
+
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Large
+\includegraphics[width=.8\linewidth]{slike/fmflogo.pdf}\\
+        \Large
+\vspace{3cm}
+        Permutation groups and combinatorial structures\\
+        \huge
+        \textbf{Homework 2\\}
+\Large  
+        \vspace{1cm}
+        \textbf{Andrej Kolar - Po{\v z}un\\}
+
+
+\vfill
+\normalsize
+\end{center}. 
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\section*{Problem statement}
+Let $G$ be a transitive permutation group on $\Omega$ and let $\Delta \subset \Omega$ be a block for $G$. Let $K = G_\Delta^\Delta \leq \mathrm{Sym}(\Delta)$. and let $H = G^\mathcal{B}$ ($\mathcal{B} = \{ \Delta^g | g \in G \}$). Prove that then there exists a pair $\phi: \Omega \to \Delta \times \mathcal{B}$ a bijection and $\iota: G \to K \wr H$ a monomorphism such that $(\phi,\iota)$ is an isomorphism of actions of $G$ on $\Omega$ and $\iota(G)$ on $\Delta \times \mathcal{B}$.
+I will add an additional assumption that $G$ is finite, as we have already established that in this course we are interested in actions of finite groups (in turn, $\mathcal{B}$ is then finite as well.)
+\section*{Solution}
+\subsection*{Preliminary definitions / notation}
+Let us first enumerate the elements of the partition $\mathcal{B} = \{\Delta_1, \dots \Delta_{m}\}$, where $\Delta_1 = \Delta$ and $\Delta_2, \dots, \Delta_m$ other elements of the partition. Furthermore let us choose $g_1,\dots, g_m \in G$ such that $\Delta_i = \Delta^{g_i}$. Note that such a choice may not be unique and that different choices might yield a different isomorphism of actions, but this is fine, since we are only interested in proving one exists - from here on we will fix our choice of $g_1, \dots, g_m$. Since $\mathcal{B}$ is a partition of $\Omega$, we know that each $\omega \in \Omega$ belongs to a unique $\Delta_i$ for some $i \in \{1,\dots,m\}$. Additionally, when considering action of group H on $\mathcal{B}$ we will write $i^h \in \{1,\dots,m\}$ for some $h \in H$. This will mean that $\Omega_i$ is mapped to $\Omega_{i^h}$ under $h$. Similarly, $g_i$ would be mapped to $g_{i^h}$.
+\subsection*{The group $K \wr H$}
+The group $H=G^\mathcal{B}$ acts on $\mathcal{B}$. As mentioned in the lectures, since $\mathcal{B}$ is finite we can consider $K^m$ to be the space of all functions from $\mathcal{B}$ to $K$. The "function composition" is then just componentwise multiplication in $K^m$. Since $H$ acts on $\mathcal{B}$, we also know we have an action of $H$ on $K^m$ by permuting the components. For $h \in H$ we have:
+$(k_1, \dots, k_m)^h = (k_{1^{h^{-1}}},\dots,k_{m^{h^{-1}}})$
+As we know from the lectures, this gives rise to a homomorphism $\theta: H \to \mathrm{Aut}(K^m)$. We can use it to form a semi-direct product.
+
+$K \wr H$ is the semi direct product $K^m \rtimes_\theta H$. 
+The elements of $K \wr H$ are therefore simply elements of the set $K^m \times H$, while the product operation is
+$(k_1, k_2,\dots , k_m, h) (k_1^\prime, k_2^\prime, \dots, k_m^\prime, h^\prime) = (k_1 k_{1^{h}}^\prime, \dots, k_m k_{m^{h}}^\prime, h h^\prime)$.
+\subsection*{The map $\phi$}
+\subsubsection*{Definition of $\phi$}
+We have already established that for every $\omega \in \Omega$ there is a unique $\Delta_i \in \mathcal{B}$ such that $\omega \in \Delta_i$.
+Using same notation as before, we can say $\omega \in \Delta_i = \Delta^{g_i}$. It then follows that there is a unique $\delta \in \Delta$ such that $\delta^{g_i} = \omega$, namely $\omega^{g_i^{-1}} \in \Delta$. Here we have used the known fact that the map $\delta \to \delta^{g_i}$ gives a bijection between $\Delta$ and $\Delta^{g_i}$.
+
+\noindent We define a map $\phi : \Omega \to \Delta \times \mathcal{B}$ by assigning to each $\omega$ the just described unique pair $(\delta, \Delta_i)$.
+\subsubsection*{$\phi$ is a bijection}
+The fact that $\phi$ is a bijection is clear: It is clearly surjective, as for each $(\delta, \Delta_i) \in \Delta \times \mathcal{B}$, we have $\phi(\delta^{g_i}) = (\delta, \Delta_i)$.
+It is also injective: Take $\phi(\omega_1) = \phi(\omega_2) = (\delta, \Delta_i)$. This means $\omega_1, \omega_2$ lie in the same block $\Delta_i = \Delta^{g_i}$. By the definition of $\phi$ it holds that $\omega_1 = \delta^{g_i} = \omega_2$. $\phi$ is therefore really also injective and in turn a bijection.  
+\subsection*{The group morphism $\iota$}
+\subsubsection*{definition of $\iota$ and well-definedness}
+We are looking for a monomorphism $\iota : G \to K \wr H$. Therefore, we need a map from $G$ to $K^m \times H$.
+Denote with $g^K$ an image of $g \in G_\Delta$ under the action $G \rightsquigarrow K$ and $g^H$ an image of $g \in G$ under the action $G \rightsquigarrow H$.
+
+Define a map $\iota(g) = ((g_1 g g_{1^{g}}^{-1})^K, (g_2 g g_{2^g}^{-1})^K, \dots, (g_m g g_{m^g}^{-1})^K,  g^H)$, where we have abused notation and wrote, for example $1^g$ as a shorthand for $1^{g^H}$. In order for this to be well defined we must check that $g_i g g_{i^g}^{-1} \in G_\Delta$ for each $g \in G$ and $i \in \{1,\dots,m\}$.
+Take an arbitrary $\delta \in \Delta$. We would like to check that $\delta^{g_i g g_{i^g}^{-1}} \in \Delta$. Observe that $\delta^{g_i} \in \Delta_i$. The block $\Delta_i$ gets mapped to $\Delta_{i^g}$ by $g$. Therefore $\delta^{g_i g} \in \Delta_{i^g}$. It then follows that $\delta^{g_i g g_{i^g}^{-1}} \in \Delta$, which proves that $\iota$ is well defined.
+
+\subsubsection*{$\iota$ is a group homomorphism}
+$\iota$ is a homomorphism: First, observe that, since $H$ and $K$ are group actions, we have $(id_G)^H = id_H$ and $(id_G)^K = id_K$. Using this fact, plugging $id_G$ in $\iota$ immediately gives: $\iota(id_G) = (id_K, \dots, id_K, id_H)$.
+
+
+\noindent Now consider $g, g^\prime \in G$:
+
+\noindent Observe that  $\iota(g) \iota(g^\prime) = ((g_1 g g_{1^g}^{-1})^K,\dots,(g_m g g_{m^g}^{-1})^K,g^H) ((g_1 g^\prime g_{1^{g^\prime}}^{-1})^K, \dots, (g_m g^\prime g_{m^{g^\prime}}^{-1})^K, (g^\prime)^H)$ The product on the right hand side is in $K \wr H$. Denoting $k^\prime_i = (g_i g^\prime g_{i^{g^\prime}}^{-1})^K$ observe that $k^\prime_{i^{h}} = (g_{i^h} g^\prime g_{i^{h g^\prime}}^{-1})^K$. This observation allows us to easily compute the product in $K \wr H$.
+
+\noindent We get $\iota(g) \iota(g^\prime) = ((g_1 g g_{1^g}^{-1})^K (g_{1^{g}} g^\prime g_{1^{g g^\prime}}^{-1})^K, \dots, (g_m g g_{m^g}^{-1})^K (g_{m^g} g^\prime g_{m^{g g^\prime}}^{-1})^K, g^H g^{\prime H})$, which can be further simplified into
+$((g_1 g g^\prime g_{1^{g g^\prime}}^{-1})^K, \dots, (g_m g g^\prime g_{m^{g g^\prime}}^{-1})^K, (g g^\prime)^H) = \iota(g g^\prime)$.
+$\iota$ therefore really is a homomorphism.
+
+\subsubsection*{$\iota$ is a monomorphism}
+It is also a monomorphism: Assume $\iota(g) = (id_K,\dots,id_K,id_H)$. From $g^H = id_H$ it follows that $g \in G$ fixes the blocks (as in, does not map one block to another). We also have for every $i \in \{1,\dots,m\}$ that $(g_i g g_{i}^{-1})^K = id_K$. it follows that $g_i g g_i^{-1} \in G_{(\Delta)}$. This implies that $g$ fixes every element from $\Delta_i$: We know every such element can be expressed as $\delta_1^{g_i}$ for some $\delta_1 \in \Delta$.  Assume that $g$ maps it to some $\delta_2^{g_i} \in \Delta_i$ (we know it must map it to the same block). Therefore, $\delta_1^{g_i g} = \delta_2^{g_i}$. Equivalently this means $\delta_1^{g_i g g_i^{-1}} = \delta_2$. But $g_i g g_i^{-1} \in G_{(\Delta)}$ and therefore $\delta_1 = \delta_2$. Naturally then also $\delta_1^{g_i} = \delta_2^{g_i}$ and we see that $g$ fixes every $\delta^{g_i} \in \Delta_i$. As this holds for every $i \in \{1,\dots,m\}$ and every $\delta \in \Delta$ it holds that $g$ fixes every $\omega \in \Omega$. As our initial action $G$ is faithful, this implies $g=id_G$. Therefore, $\iota$ is a monomorphism. Restricting the codomain we get an isomorphism $\iota: G \to \iota(G)$.
+\subsection*{Action isomorphism}
+First let us remember how we defined the imprimitive action of wreath product:
+$(\delta, \Delta_i)^{(k_1, \dots km)h} = (\delta^{k_i},\Omega_{i^h})$. We have already proved that $\phi: \Omega \to \Delta \times \mathcal{B}$ is a bijection and that $\iota: G \to \iota(G) \subset K \wr H$ is an isomorphism. What we now need to prove is that $(\phi, \iota)$ really is an action isomorphism between the action of $G$ on $\Omega$ and the action of $\iota(G)$ on $\Delta \times \mathcal{B}$. $\iota(G) \subset K \wr H$ will act in the same manner as the imprimitive action of the wreath product.
+
+
+\noindent We must prove that $\forall g \in G, \forall \omega \in \Omega$:
+$\phi(\omega^g) = \phi(\omega)^{\iota(g)}$.
+\subsubsection*{Left hand side}
+Let us denote $\phi(\omega) = (\delta, \Omega_i)$, where $\delta^{g_i} = \omega$.
+Let's decipher what $\phi(\omega^g)$ will be. As $\omega$ is in the block $\Omega_i$, $\omega^g$ will be in the block $\Omega_{i^g}$ and it holds $\delta^{g_i g} = \omega^g \in \Delta^{g_{i^g}}$. It then follows that $\delta^{g_i g g_{i^g}^{-1}} \in \Delta$ is the unique element of $\Delta$ that gets mapped to $\omega^g$ under $g_{i^g}$. Therefore, $\phi(\omega^g) = (\delta^{g_i g g_{i^g}^{-1}},\Omega_{i^g})$. 
+\subsubsection*{Right hand side}
+On the other hand $\phi(\omega)^{\iota(g)} = (\delta,\Omega_i)^{((g_1 g g_{1^g}^{-1})^K,\dots, (g_m g g_{m^g}^{-1})^K, g^H)} = ((\delta^{g_i g g_{i^g}^{-1}}, \Omega_{i^g})$.
+\\
+
+\noindent The two sides are equal and we can conclude we have found an isomorphism of actions.
+\end{document}

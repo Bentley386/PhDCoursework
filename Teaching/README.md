@@ -1,1 +1,1 @@
-Some of the solved exercises explained in my teaching duties (Was a teaching assistant for multivariable calculus for applied physics students).
+Some materials from my teaching as an assistant for Mathematics 2 course for applied physicists.

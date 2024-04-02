@@ -1,0 +1,88 @@
+\documentclass{article}
+
+
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[slovene]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{romannum}
+\usepackage{physics}
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+\geometry{margin=1in}
+
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Large
+\includegraphics[width=.8\linewidth]{slike/fmflogo.pdf}\\
+        \Large
+\vspace{3cm}
+        Permutation groups and combinatorial structures\\
+        \huge
+        \textbf{Homework 1\\}
+\Large  
+        \vspace{1cm}
+        \textbf{Andrej Kolar - Po{\v z}un\\}
+
+
+\vfill
+\normalsize
+\end{center}. 
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\section*{Problem statement}
+Let $G$ be a permutation group on a finite set $X$ and let $C$ be the centraliser of $G$ in $\mathrm{Sym}\left(X\right)$. Prove that if $G$ is semiregular, then $C$ is transitive.
+\section*{Solution}
+What we need to show transitivity is that for each $x_1, x_2 \in X$ there exists an $c \in C$, such that $x_2 = x_1^c$.
+
+For the case that $x_1 = x_2$ such a $c \in C$ obviously exists and is equal to the identity $id \in C$.
+For the case that $x_1 \neq x_2$ remember that the action of $G$ on $X$ partitions $X$ into disjoint orbits. We consider two possible cases:
+\subsection*{$x_1$ and $x_2$ in the same orbit of $G$}
+Let us first consider the case that $x_1 , x_2 \in X$ both lie in the same orbit $x_0^G$ for some $x_0 \in X$. Therefore $x_1 = x_0^{g_1}$ and $x_2 = x_0^{g_2}$ for some $g_1,g_2 \in G$. First, notice that every element $x \in x_0^G$ can be uniquely expressed as $x_0^g$ for some $g \in G$: Assume that $x_0^g = x_0^{g^\prime}$ for $g, g^\prime \in G$. Then $x_0 = x_0^{g^{-1} g^\prime}$ and therefore $g^{-1} g^\prime \in G_{x_0}$. As the action is semiregular, all the stabilisers are trivial and therefore $g^{-1} g^\prime = id$ or $g=g^\prime$.
+\\
+
+\noindent Let us define a map $c \in \mathrm{Sym}\left(X\right)$ in the following way. For $x \in X \backslash x_0^G$, we define $x^c = x$. 
+For each $x_0^g \in x_0^G$ we define $\left(x_0^g\right)^c = x_0^{g_2 g_1^{-1} g}$. Note that with this definition we have $x_1^c = x_2$.
+\\
+\noindent\textbf{Bijectivity of $c$}
+
+\noindent
+We must verify that such a map $c$ is really in $\mathrm{Sym}\left(X\right)$ - that it is a bijection. Since $X$ is finite it suffices to prove surjectivity. For every $x \in X \backslash x_0^G$ surjectivity is clear as $c$ fixes these points. Furthermore every $x_0^g \in x_0^G$ is in the image: Direct calculation shows $\left(x_0^{g_1 g_2^{-1} g}\right)^c = x_0^g$. Therefore, $c \in \mathrm{Sym}\left(X\right)$. 
+\\
+\noindent\textbf{$c$ is in the centraliser}
+
+\noindent
+It also holds that $c \in C$: Pick any $g \in G$. It holds that $\left(x_0^c\right)^g = \left(\left(x_0^\mathrm{id}\right)^c\right)^g = \left(x_0^{g_2 g_1^{-1}}\right)^g = x_0^{g_2 g_1^{-1} g} = \left(x_0^g\right)^c$. This can be rewritten as $x_0 = x_0^{cg c^{-1} g^{-1}}$. Since the action is semiregular, only the identity fixes $x_0$ therefore we have $c g c^{-1} g^{-1} = id$ and therefore $c g = gc$. Since $g \in G$ was arbitrary it holds that $c \in C$. 
+\\
+\\
+\noindent
+For each two elements of $X$ that are in the same orbit, we have therefore found an element of the centraliser that maps one to another.
+
+\subsection*{$x_1$ and $x_2$ in different orbits of $G$}
+Consider now the case where $x_1$ and $x_2$ are in different orbits. Similarly as before we can uniquely represent these two elements as $x_1 = x_{01}^{g_1}$ and $x_2 = x_{02}^{g_2}$ for some $x_{01}, x_{02}$ ($x_{01}^G \cap x_{02}^G = \emptyset$). 
+\\
+\\
+\noindent Define $c \in \mathrm{Sym}\left(X\right)$ in the following way: For $x \in X \backslash \left(x_{01}^G \cup x_{02}^G\right)$ set $x^c = x$, for $x \in x_{01}^G$ define $\left(x_{01}^g\right)^c = x_{02}^{g_2 g_1^{-1} g}$ and for $x \in x_{02}^G$ define $\left(x_{02}^g\right)^c = x_{01}^{g_1 g_2^{-1} g}$. Note that again it holds that $x_1^c = x_2$.
+\\
+\noindent\textbf{Bijectivity of $c$}
+
+\noindent
+Such a map $c$ is again really a bijection. As before, it suffices to prove surjectivity. A chosen $x \in X \backslash \left(x_{01}^G \cup x_{02}^G\right)$ is obviously in the image as before. Also, $x_{01}^g \in x_{01}^G$ is in the image: $\left(x_{02}^{g_2 g_1^{-1} g}\right)^c = x_{01}^g$. Similarly $x_{02}^g \in x_{02}^G$ is in the image as $\left(x_{01}^{g_1 g_2^{-1} g}\right)^c = x_{02}^g$. Therefore $c \in \mathrm{Sym}(X)$.
+\\
+\noindent\textbf{$c$ is in the centraliser}
+\\
+\noindent It also holds that $c \in C$: for any $g \in G$ it holds that $x_{01}^{gc} = x_{02}^{g_2 g_1^{-1} g} = x_{01}^{cg}$, which is equivalent to $x_{01} = x_{01}^{cg c^{-1} g^{-1}}$. As before, using the fact that $G$ is semiregular we have $c g c^{-1} g^{-1} = id$ and  therefore $cg = gc$ and $c \in C$.
+\\
+\\
+\noindent So also for each two elements of $X$ from different orbits, we have found an element of the centraliser that maps one of another. This completes the proof that $C$ is transitive.
+\end{document}

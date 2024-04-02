@@ -1,0 +1,83 @@
+\documentclass{article}
+
+
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[slovene]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{romannum}
+\usepackage{physics}
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+\geometry{margin=1in}
+
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Large
+\includegraphics[width=.8\linewidth]{slike/fmflogo.pdf}\\
+        \Large
+\vspace{1cm}
+        Permutations and combinatorial structures\\
+        \huge
+        \textbf{Homework 1 (Extra)\\}
+\Large  
+        \vspace{1cm}
+        \textbf{Andrej Kolar - Po{\v z}un\\}
+
+
+\vfill
+\normalsize
+\end{center}. 
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\section*{Problem statement}
+Let $G$ act transitively on $\Omega$ and $\Delta$. 
+Prove that the two actions are isomorphic, if and only if, there exists an $\alpha \in \mathrm{Aut}(G)$, such that $G_\omega = (G_\delta)^\alpha$ for some $\omega \in \Omega$, $\delta \in \Delta$. 
+\section*{Left to right implication}
+Let's assume we have an isomorphism of actions $(\alpha, \phi)$, where $\alpha \in \mathrm{Aut}(G)$ and $\phi: \Omega \to \Delta$.
+By the definition of an action isomorphism we know that for each $g \in G$ and $\omega \in \Omega$ we have:
+\begin{equation*}
+\phi(\omega^g) = \phi(\omega)^{\alpha(g)},
+\end{equation*}
+where, as usual, $\omega^g$ refers to the action on $\Omega$, while the RHS refers to the action on $\Delta$.
+The claim follows directly if we fix $\omega \in \Omega$ and pick $\delta = \phi(\omega)$. In that case we have:
+\begin{equation*}
+\phi(\omega^g) = \delta^{\alpha(g)}, \forall g \in G.
+\end{equation*}
+Now if $g \in G_\omega$, using the fact that $\phi, \alpha$ are both bijective, we have $\delta = \delta^{id} = \phi(\omega) = \phi(\omega^g) = \delta^{\alpha(g)}$ and therefore $\alpha(g) \in G_\delta$. We have shown $(G_\omega)^\alpha \subset G_\delta$. 
+Similarly if we now take $g \in G_\delta$, we have $\phi(\omega) = \delta = \delta^g = \delta^{\alpha (\alpha^{-1}(g))} = \phi(\omega^{(\alpha^{-1}) g})$ and hence $\alpha^{-1} (g) \in G_\omega$ or $g \in \alpha(G_\omega)$. Hence $G_\delta \subset (G_\omega)^\alpha$. Therefore we have $G_\delta = (G_\omega)^\alpha$ and $(G_\delta)^{\alpha^{-1}} = G_\omega$. The claim we were trying to prove then follows by making the substitution $\alpha \to \alpha^{-1}$.
+\section*{Right to left implication}
+As the actions are transitive, we know they are equivalent to actions on the coset space by right multiplication (Theorem 2.1 in the lecture notes). Let us therefore assume $\Omega = G/G_\omega$ and $\Delta = G/G_\delta$, with $G$ acting on each of the two by right multiplication. Proving that these two actions are isomorphic will prove the original claim as isomorphism of actions is an equivalence relation.
+
+
+In order to prove that the two actions are isomorphic, we need to find a bijective map $\phi: G/G_\omega \to G/G_\delta$ satisfying certain conditions.
+
+Denote $\beta = \alpha^{-1} \in \mathrm{Aug}(G)$. Define $\phi(G_\omega x) = G_\delta x^{\beta}$.
+This is well defined: If we have $G_\omega x_1 = G_\omega x_2$, we need to check if also $G_\delta x_1^{\beta} = G_\delta x_2^{\beta}$. An equivalent condition is to check whether $x_1^{\beta} (x_2^{\beta})^{-1} \in G_\delta$, which is then equivalent to $(x_1 x_2^{-1})^\beta \in G_\delta$. This is true as we have, by assumption $x_1 x_2^{-1} \in G_\omega$ and we know that $G_\omega = (G_\delta)^\alpha$ and therefore $G_\delta = (G_\omega)^\beta$.
+
+Injectivity is proven similarly. Suppose $G_\omega x_1 \neq G_\omega x_2$. By the same argument we see that then also $\phi(G_\omega x_1) \neq \phi(G_\omega x_2)$.
+
+Surjectivity is quick as well. Assume $G_\delta h \in G/G_\delta$. Clearly it holds that $\phi(G_\omega h^{\alpha}) = G_\delta h$ (remember, $\alpha^{-1} = \beta$).
+
+So $\phi$ is a bijection. What remains to be proven is that $(\beta, \phi)$ is an isomorphism of actions. Since $\beta$ is by assumption a group automorphism and $\phi$ was just proven to be a bijection we must only check the following.
+For every $g \in G$ and $G_\omega x \in G/G_\omega$ we must have:
+\begin{equation*}
+\phi(G_\omega x g) = \phi(G_\omega x) g,
+\end{equation*}
+plugging in our definition of $\phi$ we get that the above is equivalent to
+\begin{equation*}
+G_\delta (xg)^\beta = G_\delta x^\beta g^\beta,
+\end{equation*}
+which is true, since $\beta$ is an automorphism.
+
+\end{document}

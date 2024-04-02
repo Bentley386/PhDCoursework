@@ -1,1 +1,1 @@
-Homeworks and the final project for the "Splines on Triangulations" course.
+Homeworks and the final project for the "Splines on Triangulations" course. The final project has been later [expanded](https://www.sciencedirect.com/science/article/abs/pii/S0378475423005505).
