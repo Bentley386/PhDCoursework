@@ -1,0 +1,1 @@
+Homeworks for the "Selected topics from Topology: Homology, Persistence and Magnitude" course.

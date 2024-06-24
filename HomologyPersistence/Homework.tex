@@ -1,0 +1,348 @@
+\documentclass{article}
+
+
+\usepackage[nottoc,numbib]{tocbibind}
+\usepackage[slovene]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{romannum}
+\usepackage{tikz-cd}
+\usepackage{physics}
+\usepackage{amsmath,amsfonts,amsthm,bm} % Math packages
+\geometry{margin=1in}
+
+
+\begin{document}
+\pagenumbering{gobble}
+\begin{titlepage}
+    \begin{center}
+        \vspace*{1cm}
+        \Large
+\vspace{3cm}
+        Homology, Persistence and Magnitude\\
+        \huge
+        \textbf{Homework \\}
+\Large  
+        \vspace{1cm}
+        \textbf{Andrej Kolar - Po{\v z}un\\}
+
+
+\vfill
+\normalsize
+\end{center}. 
+\end{titlepage}
+\newpage
+\pagenumbering{arabic}
+\section*{Exercise 1}
+\subsection*{Problem}
+Let $Z(G)$ denote the center of the group $G$. Does there exist a functor $F: \mathbf{Grp} \to \mathbf{Grp}$ such that $F(G) = Z(G)$?
+\subsection*{Solution}
+The answer is no. Assume that such a functor would exist. Consider $C_2 = \{id, x\}$, the group with 2 elements. It is abelian so we have $F(C_2) = Z(C_2) = C_2$. Consider also the permutation group $S_3$. We can check that $F(S_3) = Z(S_3) = 1$, where $1$ is the trivial group.
+Now consider a homomorphism (actually a monomorphism) $f: C_2 \to S_3$ that map $x$ to the transposition $(1,2)$.
+The map $Ff: C_2 \to 1$ is the trivial map.
+Consider also a homorphism (epismorphism, actually) $g: S_3 \to C_2$ given by a sign of the permutation (i. e., assigning $id$ to even permutation and $x$ to odd ones). $Fg: 1 \to C_2$ is the identity map.
+Their composition $g o f : C_2 \to C_2$ is the identity. Thus by the properties of functors also $F(g o f) : C_2 \to C_2$ is the identity. Hower for covariant functors we also have $F(g o f) = F(g) o F(f)$, which is the trivial map. Therefore, such a functor $F$ cannot exist.
+
+
+\section*{Exercise 4}
+\subsection*{Problem}
+According to Schanuel's paper \textit{What is the length of a potato?} the length of a ball is twice the diameter. Work out the details.
+\subsection*{Solution}
+Schanuel in the paper writes Steiner's formula for the area of a given compact, convex set as something like:
+\begin{equation*}
+\mathrm{Total\_Area} = 1 * \mathrm{Area}(T) + (2R\mathrm{in}) \mathrm{Length} (T) + (\pi R^2 \mathrm{in}^2) \mathrm{Number}(T).
+\end{equation*}
+He says the formula also holds for higher dimensional volumes, where the coefficiens on the right hand side are the volumes of $0,1,2$ balls of radius $R$.
+For our cases, $T$ will be a ball of radius $S$ and we will use this formula to calculate the volume of a ball (denoted $T^\prime$) of radius $R+S$.
+We have:
+\begin{equation*}
+\mathrm{Vol}(T^\prime) = 1 * \mathrm{Vol}(T) + (2R\mathrm{in}) \mathrm{Area} (T) + (\pi R^2 \mathrm{in}^2) \mathrm{Length}(T) + (4/3 \pi R^3 \mathrm{in}^3) \mathrm{Number}(T).
+\end{equation*}
+We know:
+\begin{itemize}
+\item $\mathrm{Vol}(T^\prime) = 4/3 \pi (R+S)^3 \mathrm{in}^3$, the volume of a ball of radius $R+S$
+\item $\mathrm{Vol}(T) = 4/3 \pi S^3 \mathrm{in}^3$
+\item $\mathrm{Area}(T) = 1/2 * 4 \pi S^2$. This is analogous to the case in the paper - half the surface of a sphere (only one half of the surface is "exposed").
+\item $\mathrm{Number}(T) = 1$, the Euler characteristic of a ball.
+\end{itemize}
+Plugging in and simplifying we have:
+\begin{equation*}
+4/3 \pi (R+S)^3 = 4/3 \pi S^3 + 4R\pi S^2  + (\pi R^2 \mathrm{in}^{-1}) \mathrm{Length}(T) + 4/3 \pi R^3
+\end{equation*}
+\begin{equation*}
+4\pi R^2 S + 4\pi S^2 R= + 4R\pi S^2  + (\pi R^2 \mathrm{in}^{-1}) \mathrm{Length}(T) 
+\end{equation*}
+\begin{equation*}
+4 S =  ( \mathrm{in}^{-1}) \mathrm{Length}(T)
+\end{equation*}
+And we get $\mathrm{Length}(T) = 4S \mathrm{in}$, the desired result.
+\section*{Exercise 6}
+\subsection*{Problem}
+Show that there is an infinite set of points $S$ in $\mathbb{R}^k$ such that each $(k+1)$-element subset of $S$ is affinely independent. Use this to prove that any finite simplicial complex of dimension $n$ has a geometric realization in $\mathbb{R}^{2n+1}$.
+\subsection*{Solution}
+Take an infinite subset of real numbers $A$ (without a zero), for example $A = [1/4,1/2]$
+Define the set $S$ as $S = \{ v_x | x \in A \} := \{(1,x,x^2,\dots,x^k) | x \in A \}$.
+Let's say we have picked $k+1$ distinct $v_{x_0}, \dots v_{x_k}$
+They are affinely independent iff $v_{x_k}-v_{x_0}, \dots , v_{x_1}-v_{x_0}$. Are linearly independent. Which is true iff a $k\times k$ matrix $V$, with these vectors as rows is nonsingular.
+A typical vector $v_{x_i} - v_{x_0}$ looks like 
+
+
+\section*{Exercise 7}
+\subsection*{Problem}
+Prove that, up to homotopy, every finite simplicial complex can be realized as a clique complex $Cl(G)$ for some finite graph $G$.
+\subsection*{Solution}
+Pick a finite simplicial complex $K$ and assume it is an abstract simplicial complex (otherwise, pass to its abstract version as in the lectures).
+Therefore, our simplicial complex $K$ consists of a vertex set $X$ and a family of subsets $\mathcal{K}$.
+
+Define a graph $G$ as follows: The graph vertices are elements of $X$.
+For each $\sigma \in \mathcal{K}$, all the vertices in $\sigma$ form a clique - that is, for each two elements $x, y \in \sigma$ there is an edge between them.
+
+By construction, the clique complex $Cl(G)$ is exactly the abstract simplicial complex $K$ and as two geometric realizations of a single abstract simplicial complex are homotopy equivalent, we have proved the claim.
+
+\section*{Exercise 9}
+\subsection*{Problem}
+Let $A_k = \{1, 2, \dots , k \}$ be a set of $k$ points, viewed as a CW complex. Given a
+non-empty CW complex $X$:
+\begin{itemize}
+\item Determine $\tilde{H}_* (A_k * X)$ in terms of $\tilde{H}_* (X)$.
+\item Determine $\tilde{H}_* (S^1 * X)$ in terms of $\tilde{H}_* (X)$.
+\end{itemize}
+In both cases, $Y * X$ is the join of $Y$ and $X$.
+\subsection*{Solution}
+We will use Lemma 2.15 from https://people.math.wisc.edu/~lmaxim/vanishing.pdf
+\begin{equation*}
+\tilde{H}_{r+1}(Y*X) \cong \bigoplus_{i+j = r} \left( \tilde{H}_i(Y) \otimes \tilde{H}_j (X) \right) \oplus \bigoplus_{i+j=r-1} \mathrm{Tor}(\tilde{H}_i(Y), \tilde{H}_j(X))
+\end{equation*}
+Let us first take $Y = A_k$. If $k=1$, $A_1 * X = CX$ is the Cone of $X$, which is contractible, so we all the reduced homology groups of $A_1 * X$ are trivial.
+
+Assume now $k>1$. First of all, since it is a discrete space, the only nonzero homology group is $\tilde{H}_0(A_k) = \mathbb{Z}^{k-1}$.
+Additionally the number of components in $A_k * X$ is the same as in $X$ so we immediately know that $\tilde{H}_0(A_k * X) = \tilde{H}_0(X)$.
+As the homology groups of $A_k$ are torsion-free, the $\mathrm{Tor}$ term in the formula is zero. We are left with, for $r>0$:
+$\tilde{H}_r(A_k * X) \cong \bigoplus_{i+j = r-1} \left( \tilde{H}_i(A_k) \otimes \tilde{H}_j (X) \right) \cong \mathbb{Z}^{k-1} \otimes \tilde{H}_{r-1}(X)$.
+
+Now take $Y=S^1$. We know that the only nontrivial reduced homology group is now $\tilde{H}_1(S^1) = \mathbb{Z}$.
+We also know that $S^1 * X$ is connected, so we have $\tilde{H}_0(S^1 * X) = 0$.
+For higher homology groups we once again use the formula:
+$\tilde{H}_r(S^1 * X)  \cong \mathbb{Z} \otimes \tilde{H}_{r-2}(X) \cong \tilde{H}_{r-2}(X)$.
+\section*{Exercise 10}
+\subsection*{Problem}
+Prove that the hexasphere doesn't really exist. You can assume it is given as a regular CW complex structure on $S^2$, whose
+2-cells are hexagons, and their closures interesect in at most one edge.
+\subsection*{Solution}
+First, we know the homology groups of $S^2$. Those are $H_i(S^2) = \mathbb{Z}$ for $i=0,2$ and trivial otherwise.
+The "vertices" of the hexagon are our $0$-cells.
+The edges of the hexagons are attached to the 0-skeleton in such a way that we get the desired hexagonal pattern.
+Finally, the hexagons (2-cells) are attached as well. The resulting body is our hexasphere.
+
+Let's say we have $h$ hexagons. Each of these hexagons has 6 edges, and each edge is shared by two so we have $3h$ edges. We also have $2h$ vertices.
+
+Using cellular homology, we know that $H_i(X^i,X^{i-1}) \cong \mathbb{Z}(e_i^1,\dots,e_i^k)$, the free group on set of generators that correspond to the $i$-cells.
+The chain complex we have is:
+\begin{equation*}
+\dots \xrightarrow{} 0 \xrightarrow{} \mathbb{Z}^h \xrightarrow{d_2} \mathbb{Z}^{3h} \xrightarrow{d_1} \mathbb{Z}^{2h} \xrightarrow{d_0} 0
+\end{equation*}
+
+Clearly, $\mathrm{rk} (\mathrm{ker}(d_0)) = 2h$. As we know that the $H_0$ homology group should have rank $1$, this implies $\mathrm{rk}(\mathrm{im}(d_1)) = 2h-1$. Rank-nullity theorem gives $\mathrm{rk}(\mathrm{ker}(d_1)) = h+1$, which as the $H_1$ group is trivial should equal $\mathrm{rk}(\mathrm{im}(d_2)) = h+1$, which is a contradiction.
+
+
+\section*{Exercise 12}
+\subsection*{Problem}
+Suppose $f: A \to B$ and $g: B \to C$ are homomorphisms of abelian groups.
+Show that there is an exact sequence:
+\begin{equation*}
+0 \to \mathrm{ker}f \to \mathrm{ker}gf \to \mathrm{ker}g \to \mathrm{coker}f \to \mathrm{coker}gf \to \mathrm{coker}g \to 0 
+\end{equation*}
+\subsection*{Solution}
+First, let's add some notations for these maps:
+\begin{equation*}
+0 \xrightarrow{f_1} \mathrm{ker}f \xrightarrow{f_2} \mathrm{ker}gf \xrightarrow{f_3} \mathrm{ker}g \xrightarrow{f_4} \mathrm{coker}f \xrightarrow{f_5} \mathrm{coker}gf \xrightarrow{f_6} \mathrm{coker}g \xrightarrow{f_7} 0 
+\end{equation*}
+\begin{itemize}
+\item $f_1$ is obviously just a zero map. 
+\item For the sequence to be exact at $\mathrm{ker} f$, $f_2$ must then be a monomorphism. 
+Since $\mathrm{ker}(f) \leq \mathrm{ker}(gf)$ we can take $f_2$ to be the inclusion $\mathrm{ker}(f) \hookrightarrow \mathrm{ker}(gf)$. 
+\item Exactness at $\mathrm{ker}(gf)$ demands us to take $f_3$ such that $\mathrm{ker}(f_3) = \mathrm{ker}(f)$. The natural choice is $f_3=f$, with the domain restricted to $\mathrm{ker}(gf)$.
+\item Exactness at $\mathrm{ker}(g)$ demands that $\mathrm{ker}(f_4) = \mathrm{im}(f_3)$. This will be satisfied if we take $f_4$ to be the quotient projection $\mathrm{ker}(g) \to \mathrm{ker}(g)/\mathrm{im}(f) \subset \mathrm{coker}(f)$.
+\item Now since $\mathrm{im}(f_4) = \mathrm{ker}(g)/\mathrm{im}(f)$, this will be exact at $\mathrm{coker}(gf)$ if we take $f_5$ to be the induced map of $g$ on the quotient $B/\mathrm{im}(f)$, mapping $x+\mathrm{im}(f)$ to $g(x)+\mathrm{im}(gf)$.
+\item $\mathrm{im}(f_5) = \mathrm{im}(g) / \mathrm{im}(gf)$. We get $\mathrm{ker}(f_6) = \mathrm{im}(f_5)$ if we define $f_6(x + \mathrm{im}(gf)) = x + \mathrm{im}(g)$.
+\item $f_6$ is clearly surjective, so the zero map $f_7$ finishes the exact sequence.
+\end{itemize}
+
+
+\section*{Exercise 13}
+\subsection*{Problem}
+Suppose $(E^r,d^r)$ is a spectral sequence that converges to $(H_n)_n$.
+\begin{itemize}
+\item If $E^2_{p,q} = 0$ for all $p \neq 0,1$ show that there are short exact sequences.
+\begin{equation*}
+0 \to E^2_{0,n} \to H_n \to E^2_{1,n-1} \to 0
+\end{equation*}
+\item If $E^2_{p,q} = 0$ for all $q \neq 0,1$ show that there is a long exact sequence
+\begin{equation*}
+\dots \to H_{n+1} \to E^2_{n+1,0} \to E^2_{n-1,1} \to H_n \to E^2_{n,0} \to E^2_{n-2,1} \to H_{n-1} \to \dots
+\end{equation*}
+\end{itemize}
+\subsection*{Solution}
+For the first case, the second page of a spectral sequence looks like this:
+
+\begin{tikzcd}
+ \cdots & 0 & E_{0,3}^2  & E_{1,3}^2  & 0  & \cdots \\
+  \cdots & 0 & E_{0,2}^2  & E_{1,2}^2  & 0  &\cdots \\
+ \cdots & 0 &  E_{0,1}^2  & E_{1,1}^2  & 0  &\cdots \\
+ \cdots & 0 &  E_{0,0}^2  & E_{1,0}^2 & 0 & \cdots \\
+\end{tikzcd}
+
+All the differential maps on the second page are zero maps: For example $d_{0,q}^2$ maps from $E_{0,q}^r$ to $E_{-2,q+1}^2 = 0$. Similar conclusion can be made for $d_{1,q}^r$. Likewise, the map of which codomain is, for example, $E_{0,q}^r$ is also a zero map, as it is $d_{2,q-1}^2 : E_{2,q-1}^2 \to E_{0,q}^2$, and the domain is $0$. From this it holds that $E^3_{p,q} \cong H_{p,q}(E^2_{p,q}) = E^2_{p,q}/0 \cong E^2_{p,q}$. A similar argument shows that also $E^3_{p,q} = E^4_{p,q}$ and, actually, the spectral sequence stabilises already at the second page: $E^\infty_{p,q} = E^2_{p,q}$.
+Since by assumption, the spectral sequence converges to $H_n$ we have:
+$E^2_{p,q} \cong F_p H_n / F_{p-1} H_n$ for $n=p+q$,
+where the filtration is:
+$0 = F_{-1} H_n \subseteq \dots \subseteq F_p H_n \subseteq \dots \subseteq F_n H_n = H_n$.
+So we have: $E^2_{0,n} \cong F_0 H_n / F_{-1} H_n \cong F_0 H_n$
+$E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n}$ and $0 \cong F_p H_n / F_{p-1} H_n$ for $p>1$.
+This implies $H_n = F_n H_n \cong F_{n-1} H_n \cong \dots .. \cong F_1 H_n$.
+So we actually have $E^2_{1,n-1} \cong H_n / E_{0,n}^2$. We can thus build a short exact sequence:
+\begin{equation*}
+0 \to E_{0,n}^2 \to H_n \to E_{1,n-1}^2 \to 0,
+\end{equation*}
+where the first arrow is the zero map, the second arrow is inclusion of $E_{0,n}^2$ into $H_n$, the third arrow the projection $H_n \to H_n/E_{0,n}^2$ and the final arrow the zero map. It is easy to see that this sequence is exact.
+
+Now let's see what happens if we instead have $E^2_{p,q} = 0$ for $q \neq 0,1$. In this case the second page looks like:
+
+\begin{tikzcd}
+\vdots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & 0 \\
+E_{0,1}^2 & E_{1,1}^2 & E_{2,1}^2 & E_{3,1}^2 \\
+E_{0,0}^2 & E_{1,0}^2 & E_{2,0}^2 & E_{3,0}^2 \\
+0 & 0 & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots \\
+\end{tikzcd}
+
+This time we have some non-zero differential maps. Namely the maps of the form $d^2_{p,0}: E^2_{p,0} \to E^2{p-2,1}$.
+This implies the third page of our spectral sequence looks like this:
+
+\begin{tikzcd}
+\vdots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & 0 \\
+E_{0,1}^3 & E_{1,1}^3 & E_{2,1}^3 & E_{3,1}^3 \\
+E_{0,0}^3 & E_{1,0}^3 & E_{2,0}^3 & E_{3,0}^3 \\
+0 & 0 & 0 & 0 \\
+\vdots & \vdots & \vdots & \vdots \\
+\end{tikzcd}
+
+The zeros from the 2nd page remain zeros, as the maps involved are the zero maps (similar argument to the first part of this exercise),
+while for $E^3_{p,0}$ we have: $E^3_{p,0} \cong H_{p,0}(E^2_{p,0}) = \mathrm{ker} (d^2_{p,0})/0 \cong \mathrm{ker} (d^2_{p,0})$ and
+$E^3_{p,1} \cong H_{p,1}(E^2_{p,1}) = E^2_{p,1} / \mathrm{im}(d^2_{p+2,0})$. The maps $d^3_{p,q} : E^3_{p,q} \to E^3_{p-3,q+2}$ are all zero, similarly as in the first part of the exercise. So the spectral sequence stabilises and we have $E^\infty_{p,q} = E^3_{p,q}$.
+Now similarly as in first part of the exercise we have: $E^3_{n,0} = E^\infty_{n,0} \cong F_n H_n/F_{n-1}H_n \cong H_n/F_{n-1}H_n$ and $E^3_{n-1,1} \cong F_{n-1} H_n / F_{n-2} H_n$ and $E^3_{n-k,k} = 0 \cong F_{n-k} H_n / F_{n-k-1} H_n$ for $k>1$. Therefore $F_{n-2} H_n \cong F_{n-3} H_n \cong ... \cong F_{-1} H_n = 0$ and $E^3_{n-1,1} \cong F_{n-1} H_n$. So we have $E^3_{n,0} \cong H_n/E^3_{n-1,1}$ and from this we get, like in the first part of the exercise, the short exact sequence
+\begin{equation*}
+0 \to E^3_{n-1,1} \to H_n \to E^3_{n,0} \to 0
+\end{equation*}
+
+
+Also, from $E^3_{p,0} \cong \mathrm{ker}(d^2_{p,0})$ and $E^3_{p,1} \cong E^2_{p,1}/\mathrm{im}(d^2_{p+2,0})$ we have the exact sequence
+\begin{equation*}
+0 \to E^3_{p,0} \to E^2_{p,0} \to E^2_{p-2,1} \to E^3_{p-2,1} \to 0.
+\end{equation*}
+The first map is, as usual, the zero map. The second arrow is the inclusion of $\mathrm{ker}(d^2_{p,0}) \hookrightarrow E^2_{p,0}$. The third arrow is the differential map $d^2_{p,0}$, the fourth the quotient projection $E^2_{p-2,1} \to E^2_{p-2,1}/\mathrm{im}(d^2_{p,0})$. It is easy to check that this sequence really is exact.
+
+Let us write down again, the long exact sequence we are trying to derive:
+\begin{equation*}
+\dots \to H_{n+1} \xrightarrow{f_1} E^2_{n+1,0} \xrightarrow{f_2}  E^2_{n-1,1} \xrightarrow{f_3}  H_n \xrightarrow{f_4}  E^2_{n,0} \xrightarrow{f_5}  E^2_{n-2,1} \xrightarrow{f_6}  H_{n-1} \to \dots
+\end{equation*}
+We are going to construct the maps $f_i$ by applying both of the exact sequences we have just written down.
+\begin{itemize}
+\item $f_1$ is the composition of the surjective map $H_{n+1} \to E_{n+1,0}^3$ and the injective map $E^3_{n+1,0} \to E^2_{n+1,0}$. It's image is the copy of $E^3_{n+1,0}$ inside $E^2_{n+1,0}$.
+\item $f_2$ is the map $E^2_{n+1,0} \to E^2_{n-1,1}$ from the second exact sequence (the derivative). Note that it's kernel is $E^3_{n+1,0}$, so the sequence is exact here. It's image is $\mathrm{im}(d^2_{n+1,0})$.
+\item $f_3$ is the composition of the surjective map $E^2_{n-1,1} \to E^3_{n-1,1}$ and the injective map $E^3_{n-1,1} \to H_n$. It's kernel is equal to the kernel of the first map, which by construction is $\mathrm{im}(d^2_{n+1,0})$. It's image is the copy of $E^3_{n-1,1}$ in $H_n$.
+\item $f_5$ is similar to $f_1$ by replacing $n+1$ with $n$. Its kernel is the kernel of the map $H_n \to E_{n,0}^3 \cong H_n/E^3_{n-1,1}$, so the sequence is exact here as well.
+\item Maps $f_6$ (and other not shown) fall into one of the classes already described. The long sequence thus really is exact. 
+\end{itemize}
+\section*{Exercise 15}
+\subsection*{Problem}
+Prove that the Euler characteristic of $\mathrm{Inj}(n)$ is equal to
+$\chi(\mathrm{Inj}(n)) = 1 + (-1)^{n-1} d_n$,
+where $d_n$ is the number of derangements in $S_n$.
+\subsection*{Solution}
+The plan is to compute the Euler characteristic from the Betti numbers (ranks of homology groups).
+In lecture notes, we have proved that the complex of injective words
+$X = \mathrm{Inj}(n)$ has the homotopy type:
+$X \simeq \bigvee_{d_n} S^{n-1}$.
+Now let's compute the homology groups.
+We know that $H_0(X) = \mathbb{Z}$ as $X$ is connected.
+For the higher homology groups, we can use the fact that
+$H_i (A \vee B) = H_i(A) \oplus H_i(B)$, $i>0$. Additionally, we know that $H_i (S^n) = \mathbb{Z}$ if $i=n$ and trivial for other $i>0$.
+From this it holds that the only non-trivial homology groups are:
+$H_0(X) = \mathbb{Z}$ and $H_{n-1}(X) = \mathbb{Z}^{d_n}$.
+Now using the formula for the Euler characteristic:
+$\chi = \sum_{i=0}^\infty (-1)^i b_i = \sum_{i=0}^\infty (-1)^i \mathrm{rk}(H_i(X)) = 1 + (-1)^{n-1} d_n$,
+which shows that $\chi(\mathrm{Inj}(n)) = 1+(-1)^{n-1} d_n$
+
+\section*{Exercise 16}
+\subsection*{Problem}
+Given CW-complexes $X$ and $Y$, suppose that $f: X \to Y$ is an
+n-equivalence. Prove that the induced homomorphism $f_*: H_q(X) \to H_q(Y)$ is an isomorphism for $q < n$ and an epimorphism for $q=n$.
+\subsection*{Solution}
+This is the well known theorem, proved for example in Hatcher. Nvm ni v hatcherju lol luzer
+
+\section*{Exercise 17}
+\subsection*{Problem}
+Determine the Vietoris-Rips persistence barcode (in all homological degrees) for the
+9-cycle graph $G=C_9$, equipped with the graph metric.
+\subsection*{Solution}
+Remember in the Vietoris-Rips complex at scale $r$, two vertices of $G$ $x,y$ are in the same simplex iff $d(x,y) \leq r$.
+It is easy to see that at the scale $r<1$ there are no simplices except for each of the vertices:
+\begin{equation*}
+X_0 = \{\{i\} | i=1,2,3,4,5,6,7,8,9 \}
+\end{equation*}
+On the other hand for $r\geq 5$ (graph diameter) we have all the vertices:
+\begin{equation*}
+X_9 = \{\{i\} | i=1,2,3,4,5,6,7,8,9 \}
+\end{equation*}
+Other changes happen at integer values of $r$ between $1$ and $5$. With some drawing we can see that we have the following:
+
+This gives us a filtration:
+
+Applying $H_0$ we get...
+
+
+\section*{Exercise 18}
+\subsection*{Problem}
+Calculate the magnitude of the 3-cube graph $G=Q_3$ (with vertices given as $V(G) = \{0,1\}^3$ and edges given by those pairs that differ in exactly one componenet). Using results from the provided paper, deduce the magnitude homology of $G$.
+\subsection*{Solution}
+The cube graph $G=Q_3$ can be expressed as the cartesian product: $G=K_2 \square K_2 \square K_2$, where $K_2$ is the complete graph on two vertices (so, having two nodes $0,1$ and an edge between them).
+1.2.2. in the provided paper shows that we can express magnitude of $G$ as
+$\#G = \#(K_2 \square K_2 \square K_2) = \#K_2 \cdot \#K_2 \cdot \#K_2$.
+To proceed, let us recall the general formula for the graph magnitude:
+\begin{equation*}
+\#G = \sum_{l \geq 0}\left(\sum_{k \geq 0}(-1)^k \left| \{(x_0,\dots,x_k) : x_i \in V(G), x_i \neq x_{i+1} \sum_{i=0}^{k-1} d(x_i,x_{i+1}) = l \} \right| \right) q^l
+\end{equation*}
+Let us calculate $\#K_2$. The constant term is $2$, the coefficient of $q$ is $-2$, coefficient of $q^2$ is again $2$ and so on.
+We have: $\#K_2 = 2-2q+2q^2-2q^3+\dots = 2(1-q+q^2-q^3+\dots) = \frac{2}{1+q}$, where we have used geometric series to write the sum in a closed form.
+It follows $\#G = (\frac{2}{1+q})^3 = 8(\frac{1}{1+q})^3 = 4 \sum_{l=2}^\infty (-1)^{l}(l-1)l q^{l-2}$, where we used $\frac{1}{(1-x)^3} = \sum_{n=2}^\infty \frac{(n-1)n}{2} x^{n-2}$.
+So, to repeat the main result, we found
+\begin{equation*}
+\#G = 4 \sum_{l=2}^\infty (-1)^l (l-1)l q^{l-2}
+\end{equation*}
+
+The magnitude homology of $G$ can be obtained in a similar manner.
+Example 5 in the paper shows that $MH_{k,l}(K_2) = 0$ for $k \neq l$ and 
+$MH_{l,l}(K_2)= \mathbb{Z}^2, l \geq 0$.
+Now using Künneth theorem for magnitude homology we know there is a short exact sequence:
+\begin{equation*}
+0 \to MH_{*,*}(G) \otimes MH_{*,*}(H) \to MH_{*,*}(G \square H) \to \mathrm{Tor}(MH_{*-1,*}(G),MH_{*,*}(H)) \to 0
+\end{equation*}
+Picking $G=H = K_2$ we have $\mathrm{Tor}(MH_{*-1,*}(G),MH_{*,*}(H)) = 0$, as the magnitude homologies of $K_2$ are torsion-free. So we are left with an isomorphism:
+$MH_{*,*}(K_2 \square K_2) \cong MH_{*,*}(K_2) \otimes MH_{*,*}(K_2)$.
+We get $MH_{k,l}(K_2 \square K_2)$ equals $0$ if $k \neq l$ or $\mathbb{Z}^2 \otimes \mathbb{Z}^2 \cong \mathbb{Z}^4$ otherwise.
+
+Since the resulting homology groups are still torsion-free we can use the same formula to finally compute:
+
+$MH_{k,l}(G) = 0$ if $k \neq l$ and $MH_{k,l}(G) = \mathbb{Z}^8$ otherwise.
+
+
+\end{document}
