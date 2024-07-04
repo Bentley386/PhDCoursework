@@ -80,20 +80,20 @@ showstringspaces=false
 \subsection*{Problem}
 Let $Z(G)$ denote the center of the group $G$. Does there exist a functor $F: \mathbf{Grp} \to \mathbf{Grp}$ such that $F(G) = Z(G)$?
 \subsection*{Solution}
-The answer is no. Assume that such a functor would exist. Consider the group with 2 elements $C_2 = \{id, x\}$. It is abelian so we have $F(C_2) = Z(C_2) = C_2$. Consider also the permutation group $S_3$. We can check that $F(S_3) = Z(S_3) = 1$, where $1$ is the trivial group.
+The answer is no. Assume that such a functor exists and denote it by $F$. Consider the group with 2 elements $\mathbb{Z}_2 = \{0, 1\}$. It is abelian so we have $F(\mathbb{Z}_2) = Z(\mathbb{Z}_2) = \mathbb{Z}_2$. Consider also the permutation group $S_3$. We can check that $F(S_3) = Z(S_3) = E$, where $E$ is the trivial group (the reason for this weird notation is that $1$ and $0$, the usual trivial group notations, are already taken as elements of $\mathbb{Z}_2$).
 
-Now consider a morphism (actually a group monomorphism) $f: C_2 \to S_3$ that map $x$ to the transposition $(1 2)$.
-Naturally, it maps $id$ to the identity of $S_3$. The map $Ff: C_2 \to 1$ is the trivial map (as is any map into $1$).
+Now consider a morphism (actually a group monomorphism) $f: \mathbb{Z}_2 \to S_3$ that map $1$ to the transposition $(1 2)$.
+Naturally, it maps $0$ to the identity of $S_3$. The map $Ff: \mathbb{Z}_2 \to E$ is the trivial map (as is any map into $E$).
 
-Consider also a morphism (actually a group epimorphism) $g: S_3 \to C_2$ given by the permutation sign (i. e., assigning $id$ to even permutations and $x$ to odd ones). $Fg: 1 \to C_2$ is the trivial map (as is any homomorphism from $1$).
+Consider also a morphism (actually a group epimorphism) $g: S_3 \to \mathbb{Z}_2$ given by the permutation sign (so,  assigning $0$ to even permutations and $1$ to odd ones). $Fg: E \to \mathbb{Z}_2$ is the trivial map (as is any homomorphism from $E$).
 
-Their composition $g o f : C_2 \to C_2$ is the identity (of course, it maps identity to the identity, and it maps $x$ to $(12)$ and then back to $x$). Since functors preserve identities it should hold that also $F(g o f) : C_2 \to C_2$ is also the identity map. However, it must also hold that $F(g o f) = F(g) o F(f)$. But $F(g) o F(f)$ is a trivial map, which gives us a contradiction. Therefore, such a functor $F$ cannot exist.
+Their composition $g o f : \mathbb{Z}_2 \to \mathbb{Z}_2$ is the identity (of course, it maps identity to the identity, and it maps $1$ to $(12)$ and then back to $1$). Since functors preserve identities it should hold that $F(g o f) : \mathbb{Z}_2 \to \mathbb{Z}_2$ is also the identity map. However, it must also hold that $F(g o f) = F(g) o F(f)$. But $F(g) o F(f)$ is a trivial map (since $F(g)$ and $F(f)$ both are), which gives us a contradiction. Therefore, such a functor $F$ cannot exist.
 \newpage
 \section*{Exercise 2}
 \subsection*{Problem}
 Let $C$ be an extensive category with a terminal object $T$. Consider the Burnside rig $\mathcal{B}(C)$ and let $1 = [T]$ be the isomorphism class of $T$. Show that $1$ is cancellable, i.e. for any $x,y \in \mathcal{B}(C)$, $x+1=y+1$ implies $x=y$.
 \subsection*{Solution}
-What we will show is that in an extensive category for any two objects $x,y$ we have that $x+T \cong y+T$ implies $x \cong y$. The claim will then follow.
+What we will show is that in an extensive category for any two objects $x,y$ such that $x+T \cong y+T$ it follows that $x \cong y$. The claim will then follow.
 The proof that follows was inspired by the one in paper \textit{Cockett - Introduction to distributive categories}.
 
 First, remember that in an extensive category, all pullbacks along finite coproduct injections exist. This means we have the following pullbacks (as in all the cases that follow, the cospan in the bottom right has a coproduct injection):
@@ -126,12 +126,15 @@ P_4 \arrow[r] \arrow[d]  & T \arrow[d] \\
 T \arrow[r] & T+X
 \end{tikzcd}\end{center}
 
-Note that we can say more: Actually $P_4 \cong T$, this is because the following diagram is also a pullback: For any other cone over $T \rightarrow T+X \leftarrow T$, there is clearly a unique map into $T$ (the top left of the square) that makes everything commute, as this is the defining property of the terminal object $T$: From any other object in the category, there is a unique morphism to $T$.
+Note that, for this last one, we can say more: actually $P_4 \cong T$, this is because the following diagram is also a pullback:
 
 \begin{center}\begin{tikzcd}
 T \arrow[r] \arrow[d]  & T \arrow[d] \\
 T \arrow[r] & T+X
 \end{tikzcd}\end{center}
+
+The fact that this is a pullback is easy to see, as  for any other cone over $T \rightarrow T+X \leftarrow T$, there is clearly a unique map into $T$ (the one in the top left of the square) that makes everything commute. This follows from the defining property of the terminal object $T$: From any other object in the category, there is a unique morphism to $T$.
+
 
 Putting it all together, we  get the following commutative diagram, where each of the small 4 squares is a pullback square:
 
@@ -148,7 +151,7 @@ Using the fact that $T \rightarrow T+X \leftarrow X$ is a coproduct diagram and 
 As the top row is a coproduct diagram, we have $T \cong T+P_1$. It follows that $P_1 \cong I$, where $I$ is the initial object.
 Left column gives $T \cong T + P_2$, from which it again follows $P_2 \cong I$.
 
-Putting all this together, the commutative diagram above becomes:
+The commutative diagram above becomes:
 
 
 \begin{center}\begin{tikzcd}
@@ -158,8 +161,8 @@ I \arrow[r] \arrow[u] & Y \arrow[u]& P_3 \arrow[l] \arrow[u]
 \end{tikzcd}\end{center}
 
 
-However bottom row being a coproduct implies $Y \cong I + P_3$, while right column being a coproduct implies $X \cong I + P_3$.
-So we have $Y \cong I+P_3 \cong X$ as desired.
+The bottom row being a coproduct implies $Y \cong I + P_3$, while right column being a coproduct implies $X \cong I + P_3$.
+So we have $Y \cong I+P_3 \cong X$ and the claim is proved.
 \newpage
 \section*{Exercise 4}
 \subsection*{Problem}
@@ -215,7 +218,7 @@ non-empty CW complex $X$:
 \end{itemize}
 In both cases, $Y * X$ is the join of $Y$ and $X$.
 \subsection*{Solution}
-We will use Lemma 2.15 from \textit{Maxim - Notes on vanishing cycles and applications}\footnote{\url{https://people.math.wisc.edu/~lmaxim/vanishing.pdf}}, which says that
+We will use Lemma 2.1 from \textit{Milnor - Construction of Universal Bundles, II}\footnote{\url{https://www.home.uni-osnabrueck.de/mfrankland/Math527/Milnor_Universal2.pdf}}, which says that
 \begin{equation*}
 \tilde{H}_{r+1}(Y*X) \cong \bigoplus_{i+j = r} \left( \tilde{H}_i(Y) \otimes \tilde{H}_j (X) \right) \oplus \bigoplus_{i+j=r-1} \mathrm{Tor}(\tilde{H}_i(Y), \tilde{H}_j(X))
 \end{equation*}
@@ -228,11 +231,11 @@ Additionally the number of components in $A_k * X$ is the same as in $X$ so we i
 \begin{equation*}
 \tilde{H}_0(A_k * X) = \tilde{H}_0(X)
 \end{equation*}
-As the homology groups of $A_k$ are torsion-free, the $\mathrm{Tor}$ term in the formula is zero. We are left with, for $r>0$:
+As the homology groups of $A_k$ are torsion-free, the $\mathrm{Tor}$ term in Milnor's formula is zero. We are left with, for $r>0$:
 \begin{equation*}
 \tilde{H}_r(A_k * X) \cong \bigoplus_{i+j = r-1} \left( \tilde{H}_i(A_k) \otimes \tilde{H}_j (X) \right) \cong \mathbb{Z}^{k-1} \otimes \tilde{H}_{r-1}(X) \cong \bigoplus_{i=1}^{k-1} \mathbb{Z} \otimes \tilde{H}_{r-1}(X) \cong (\tilde{H}_{r-1}(X))^{k-1}
 \end{equation*}
-(Note: This actually also accounts for the $k=1$ and $r=0$ cases that we computed seperately)
+
 
 Now take $Y=S^1$. We know that the only nontrivial reduced homology group is now $\tilde{H}_1(S^1) = \mathbb{Z}$.
 We also know that $S^1 * X$ is connected, so we have 
@@ -243,17 +246,20 @@ For higher homology groups we once again use the formula (again, the Tor term is
 \begin{equation*}
 \tilde{H}_r(S^1 * X)  \cong \mathbb{Z} \otimes \tilde{H}_{r-2}(X) \cong \tilde{H}_{r-2}(X)
 \end{equation*}
-As before, this actually also accounts for the $r=0$ case, as $\tilde{H}_{-2} \cong 0$. Also $\tilde{H}_1(S^1 * X) \cong 0$.
+and $\tilde{H}_1 (S^1 * X) \cong 0$.
+
 \newpage
 \section*{Exercise 10}
 \subsection*{Problem}
 Prove that the hexasphere\footnote{\url{https://pub.ista.ac.at/~edels/hexasphere/}} doesn't really exist. You can assume it is given as a regular CW complex structure on $S^2$, whose
 2-cells are hexagons, and their closures interesect in at most one edge.
 \subsection*{Solution}
-First, the homology groups of $S^2$ are known. Those are $H_i(S^2) = \mathbb{Z}$ for $i=0,2$ and trivial otherwise.
-The "{}vertices"{} of the hexagon are the $0$-cells of our CW structure.
-The edges of the hexagons (the $1$-cells) are attached to the 0-skeleton in such a way that we get the desired hexagonal pattern.
-Finally, the hexagons (2-cells) are attached as well to fill in the gaps. The resulting body is our hexasphere.
+The homology groups of $S^2$ are known. Those are $H_i(S^2) = \mathbb{Z}$ for $i=0,2$ and trivial otherwise. The idea is to try compute those groups again from the CW structure and see that something goes wrong.
+
+
+The 0-cells of our CW structure are the "{}vertices"{} of the hexagons.
+The 1-cells are the edges of the hexagons, attached to the 0-skeleton in such a way that we get the desired hexagonal pattern.
+Finally, the 2-cells are the hexagons, attached to fill in the gaps. The resulting body is our hexasphere.
 
 Let's say we have $h$ hexagons. Each of these hexagons has 6 edges, and each edge is shared by two so we have $3h$ edges. Also each edge has two endpoints and each vertex is shared by three edges so we have $2h$ vertices.
 
@@ -264,6 +270,70 @@ This gives us a chain complex:
 \end{equation*}
 
 Clearly, $\mathrm{rank} (\mathrm{ker}(d_0)) = 2h$. As we know that the $H_0$ homology group should have rank $1$ ($H_0(S^2) \cong \mathbb{Z}$), this implies $\mathrm{rank}(\mathrm{im}(d_1)) = 2h-1$. By rank-nullity theorem $3h = \mathrm{rank}(\mathrm{ker}(d_1)) + \mathrm{rank}(\mathrm{im}(d_1))$, which gives $\mathrm{rank}(\mathrm{ker}(d_1)) = h+1$. As the $H_1$ homology group should be trivial ($H_1(S^2) \cong 0$), we have $\mathrm{rank}(\mathrm{im}(d_2)) = \mathrm{rank}(\mathrm{ker}(d_1)) = h+1$, which is a contradiction as, again by rank-nullity theorem, we should have $\mathrm{rank}(\mathrm{im}(d_2)) \leq h$. Therefore, the hexasphere cannot exist.
+
+\newpage
+\section*{Exercise 11}
+\subsection*{Problem}
+Compute group homology of $SL(2,\mathbb{Z})$. (Hint: You can use Mayer-Vietoris long exact sequence for group homology)
+\subsection*{Solution}
+For this exercise, we will use the textbook \textit{Kenneth S. Brown, Cohomology of gropus}.
+3.1 in that textbook says that the group homology of cyclic groups are:
+\begin{equation*}
+H_i(\mathbb{Z}_n) =
+\begin{cases}
+    \mathbb{Z} & \text{if } i = 0, \\
+    \mathbb{Z}_n & \text{if } i \text{ odd}, \\
+    0 & \text{otherwise}.
+\end{cases}
+\end{equation*}
+
+Groupprops wiki\footnote{\url{https://groupprops.subwiki.org/wiki/Special_linear_group:SL(2,Z)}} tells us that $SL(2, \mathbb{Z})$ can be expressed
+as an amalgated free product $SL(2, \mathbb{Z}) \cong \mathbb{Z}_4 *_{\mathbb{Z}_2} \mathbb{Z}_6$ with the maps
+$\mathbb{Z}_2 \to \mathbb{Z}_4$ mapping $0 \to 0$ and $1 \to 2$ and $\mathbb{Z}_2 \to \mathbb{Z}_6$ mapping $0 \to 0$ and $1 \to 3$.
+
+
+
+Corollary 7.7 of Kenneth's textbook has a Mayer-Vietoris sequence for an amalgated free product $G = G_1 *_A G_2$:
+\begin{equation*}
+\dots \to H_n A \to H_n G_1 \oplus H_n G_2 \to H_n G \to H_{n-1} A \to \dots
+\end{equation*}
+In our case this translates to:
+\begin{equation*}
+\dots \to H_n Z_2 \to H_n Z_4 \oplus H_n Z_6 \to H_n SL(2,\mathbb{Z}) \to H_{n-1} Z_2 \to \dots
+\end{equation*}
+If $n$ is even (and not $0$) we have:
+\begin{equation*}
+\dots \to 0 \to 0 \to H_n SL(2,\mathbb{Z}) \to \mathbb{Z}_2 \to \mathbb{Z}_4 \oplus \mathbb{Z}_6 \to \dots
+\end{equation*}
+This implies that the map $H_n SL(2,\mathbb{Z}) \to \mathbb{Z}_2$ is injective, which means we have two choices. Either $H_n SL(2,\mathbb{Z}) \cong 0$ or $H_n SL(2, \mathbb{Z}) \cong \mathbb{Z}_2$. The latter case is impossible, as it would demand (by exactness) the map $H_n \mathbb{Z}_2 \to H_n \mathbb{Z}_4 \oplus H_n \mathbb{Z}_6$ to be trivial. Since the map $H_n \mathbb{Z}_2 \to H_n \mathbb{Z}_4 \oplus H_n \mathbb{Z}_6$ is induced by the inclusion mentioned in the beginning of the exercise, this map is nontrivial and therefore $H_n SL(2,\mathbb{Z}) \cong 0$ for $n$ even.
+
+\noindent
+If $n>1$ is odd, we have
+\begin{equation*}
+\dots \to \mathbb{Z}_2 \xrightarrow{f_1} \mathbb{Z}_4 \oplus \mathbb{Z}_6 \xrightarrow{f_2} H_n SL(2,\mathbb{Z}) \to 0 \to \dots
+\end{equation*}
+
+Therefore, $\mathbb{Z}_4 \oplus \mathbb{Z}_6 \to H_n SL(2, \mathbb{Z})$ is surjective, which by the first isomorphism theorem gives 
+$H_n SL(2, \mathbb{Z}) \cong \mathbb{Z}_4 \oplus \mathbb{Z}_6 / \mathrm{ker}(f_2) \cong \mathbb{Z}_4 \oplus \mathbb{Z}_6 / \mathrm{im}(f_1)$, where the last equality (up to isomorphism) comes from exactness $\mathrm{im}(f_1) = \mathrm{ker}(f_2)$.
+As $\mathrm{im}(f_1) = \{(0,0),(2,3) \}$, we must compute  $\mathbb{Z}_4 \oplus \mathbb{Z}_6 / \langle (2,3) \rangle$. Note that the cardinality of the latter group is $24/2 = 12$. The only two abelian groups of order $12 = 2^4 * 3$ are $\mathbb{Z}_2 \otimes \mathbb{Z}_2 \otimes \mathbb{Z}_3$ and $\mathbb{Z}_4 \otimes \mathbb{Z}_3 \cong \mathbb{Z}_{12}$. As $(1,1)+\langle (2,3) \rangle$ is an element of order $12$, we have $H_n SL(2, \mathbb{Z}) \cong \mathbb{Z}_{12}$.
+
+\noindent
+At the end of chapter 3, Kenneth says that for a group $G$ we have $H_0 G = \mathbb{Z}$ and $H_1 G \cong G_\mathrm{ab}$.
+Let us calculate the abelianization of $SL(2,\mathbb{Z})$.
+Since $SL(2,\mathbb{Z}) = \mathbb{Z}_4 *_{\mathbb{Z}_2} \mathbb{Z}_6$, we know\footnote{\url{https://en.wikipedia.org/wiki/Free_product}} that we have a presentation $SL(2,\mathbb{Z}) = \langle x, y | x^4 = 1, y^6 = 1, x^2 = y^3 \rangle$
+Abelianization will have presentation $SL(2,\mathbb{Z})_\mathrm{ab} = \langle x, y | x^4 = 1,  y^6=1, x^2 = y^3,  xy = yx \rangle$.
+Now, clearly $\langle x, y | x^4 = 1, y^6 = 1, xy=yx \rangle \cong \mathbb{Z}_4 \otimes \mathbb{Z}_6$. Additionally taking into account the $x^2 = y^3$ relation means we take a quotient: $  (\mathbb{Z}_4 \otimes \mathbb{Z}_6) / \langle (2,3) \rangle$, which we have already computed to equal $\mathbb{Z}_{12}$.
+
+To summarize:
+
+\begin{equation*}
+H_i(SL(2,\mathbb{Z})) =
+\begin{cases}
+    \mathbb{Z} & \text{if } i = 0, \\
+    \mathbb{Z}_{12} & \text{if } i \text{ odd}, \\
+    0 & \text{otherwise}.
+\end{cases}
+\end{equation*}
 
 \newpage
 \section*{Exercise 12}
@@ -285,11 +355,12 @@ Since $\mathrm{ker}(f) \leq \mathrm{ker}(gf)$ we can take $f_2$ to be the inclus
 \item Exactness at $\mathrm{ker}(gf)$ demands us to take $f_3$ such that $\mathrm{ker}(f_3) = \mathrm{ker}(f)$. The natural choice is $f_3=f$, with the domain restricted to $\mathrm{ker}(gf)$.
 \item Exactness at $\mathrm{ker}(g)$ demands that $\mathrm{ker}(f_4) = \mathrm{im}(f_3)$. This will be satisfied if we take $f_4$ to be the composition of quotient projection $\mathrm{ker}(g) \to \mathrm{ker}(g)/\mathrm{im}(f_3)$ (which is well-defined as $\mathrm{im}(f_3) \subset \mathrm{ker}(g)$ and the map $\mathrm{ker(g)}/\mathrm{im}(f_3) \to B/\mathrm{im}(f) = \mathrm{coker}(f)$, given by $x + \mathrm{im}(f_3) \to x + \mathrm{im}(f)$.
 First of all, the latter map is well-defined. Assume $x+\mathrm{im}(f_3) = y+\mathrm{im}(f_3)$ or $x-y \in \mathrm{im}(f_3)$, clearly then also $x-y \in \mathrm{im}(f)$. The kernel of this map are such $x \in \mathrm{ker}(g)$ that are also in the image $\mathrm{im}(f)$. But this is exactly $\mathrm{im}(f_3)$.
-\item Now since $\mathrm{im}(f_4) = \mathrm{ker}(g) + \mathrm{im}(f)$, this will be exact at $\mathrm{coker}(gf)$ if we take $f_5$ to be the induced map of $g$ on the quotient $B/\mathrm{im}(f)$, mapping $x+\mathrm{im}(f)$ to $g(x)+\mathrm{im}(gf)$. Again this is easily verified to be well defined: $x-y \in \mathrm{im}(f)$ implies $g(x-y) = g(x)-g(y) \in \mathrm{im}(gf)$. The kernel of this map is clearly $\mathrm{im}(f_4)$.
+\item Now since $\mathrm{im}(f_4) = \mathrm{ker}(g) + \mathrm{im}(f)$, this will be exact at $\mathrm{coker}(gf)$ if we take $f_5$ to be the induced map of $g$ on the quotient $B/\mathrm{im}(f)$, mapping $x+\mathrm{im}(f)$ to $g(x)+\mathrm{im}(gf)$. Again this is easily verified to be well defined: $x-y \in \mathrm{im}(f)$ implies $g(x-y) = g(x)-g(y) \in \mathrm{im}(gf)$. The kernel of this map is $\mathrm{im}(f_4)$.
 \item $\mathrm{im}(f_5) = \mathrm{im}(g) / \mathrm{im}(gf)$. We get $\mathrm{ker}(f_6) = \mathrm{im}(f_5)$ if we define $f_6(x + \mathrm{im}(gf)) = x + \mathrm{im}(g)$.
 \item $f_6$ is clearly surjective, so the zero map $f_7$ finishes the exact sequence.
 \end{itemize}
 
+So we have constructed the maps such that the given sequence is exact.
 \newpage
 \section*{Exercise 13}
 \subsection*{Problem}
@@ -384,8 +455,7 @@ We are going to construct the maps $f_i$ by applying both of the exact sequences
 Let $X = A \cup B$ be a cover by two non-empty open sets. Write down the first few pages of the
 corresponding augmented Mayer-Vietoris spectral sequence and use this to deduce the Mayer-Vietoris long exact sequence. 
 \subsection*{Solution}
-Big part of this exercise proceeds similarly to the previous exercise (Exercise 13).
-
+A very big part of this exercise proceeds similarly to the previous exercise (Exercise 13), so some explanations will be omitted.
 As we saw in the lectures, a cover $(U_i)_{i \in \Lambda}$ gives as a double complex:
 \begin{equation*}
 C_{p,q} = \bigoplus_{|I| = p+1} C_q (U_I),
@@ -397,6 +467,7 @@ C_{1,q} &= C_q(A \cap B). \\
 \end{align*}
 All other $C_{p,q}$ are equal to zero.
 
+\noindent
 The double complex is equal to the zeroth page of the Mayer-Vietoris spectral sequence:
 
 \begin{center}\begin{tikzcd}
@@ -407,6 +478,7 @@ The double complex is equal to the zeroth page of the Mayer-Vietoris spectral se
  \cdots & 0 & 0 & 0 & 0 & \cdots \\
 \end{tikzcd}\end{center}
 
+\noindent
 with the vertical maps come from the differentials $C_q \to C_{q-1}$ (other vertical maps are zero and not displayed).
 This also tells us (also from the lectures) how the first page looks like:
 
@@ -418,6 +490,7 @@ This also tells us (also from the lectures) how the first page looks like:
  \cdots & 0 & 0 & 0 & 0 & \cdots \\
 \end{tikzcd}\end{center}
 
+\noindent
 where again, only the nonzero arrows are displayed.
 A typical "{}row"{} of this diagram looks like:
 \begin{equation*}
@@ -425,6 +498,7 @@ A typical "{}row"{} of this diagram looks like:
 \end{equation*}
 where the map $d_n$ is the horizontal map coming from the nerve, but we will not need to know how exactly it acts.
 
+\noindent
 Let us also write the second page of the spectral sequence:
 
 \begin{center}\begin{tikzcd}
@@ -440,10 +514,10 @@ This gives us an exact sequence:
 \begin{equation*}
 0 \to E^2_{1,q} \to H_q(A \cap B) \to H_q(A) \oplus H_q(B) \to E^2_{0,q} \to 0,
 \end{equation*}
-the first map is a zero map, the second map is inclusion from $\mathrm{ker}(d_q)$ to $H_q(A \cap B)$, the third map is just $d_n$, and the fourth map the quotient projection by $\mathrm{im}(d_q)$. It can be easily checked (very similar to the previous exercise) that this sequence is exact.
+the first map is a zero map, the second map is inclusion from $\mathrm{ker}(d_q)$ to $H_q(A \cap B)$, the third map is just $d_n$, and the fourth map the quotient projection by $\mathrm{im}(d_q)$. It can be easily checked that this sequence is exact.
 
-Additionally, as all the maps on the second page are zero maps, the sequence stabilises at the second page: $E^2_{p,q} \cong E^\infty_{p,q}$. Since we know it converges to homology of $X=A\cup B$, we have (again, what follows is very similar to the previous exercise): $E^2_{0,n} \cong F_0 H_n/F_{-1} H_n \cong F_0 H_n$. 
-We also have $E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n}$. Additionally, as for example $0 \cong E^2_{2,n-2} \cong F_2/F_1$ implies $F_2 \cong F_1$, and similar for the higher $F_p H_n$, we have $F_1 H_n \cong F_n H_n \cong H_n$. So we have $E^2_{1,n-1} \cong H_n / E^2_{0,n}$ and therefore an exact sequence:
+Additionally, as all the maps on the second page are zero maps, the sequence stabilises at the second page: $E^2_{p,q} \cong E^\infty_{p,q}$. Since we know it converges to homology of $X=A\cup B$, we have: $E^2_{0,n} \cong F_0 H_n/F_{-1} H_n \cong F_0 H_n$. 
+We also have $E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n}$. Additionally, as for example $0 \cong E^2_{2,n-2} \cong F_2/F_1$ implies $F_2 \cong F_1$, and similar for $F_p, p>2$. We have $F_1 H_n \cong F_n H_n \cong H_n$. So we have $E^2_{1,n-1} \cong H_n / E^2_{0,n}$ and therefore an exact sequence:
 \begin{equation*}
 0 \to E_{0,n}^2 \to H_n(X) \to E_{1,n-1}^2 \to 0
 \end{equation*}
@@ -452,7 +526,6 @@ Putting the two sequences together we have a long exact sequence:
 \begin{equation*}
 \dots \to H_{n+1}(X) \to H_{n}(A \cap B) \to H_{n}(A) \oplus H_{n}(B) \to H_n(X) \to H_{n-1}(A \cap B) \to \dots \to H_0(X) \to 0,
 \end{equation*}
-
 where the sequence finishes at zero as $E^2_{1,-1} \cong 0$. We can see that this is exactly the long exact Mayer-Vietoris sequence.
 
 \newpage
@@ -490,7 +563,8 @@ M_f = ([0,1] \times X) \cup_f Y,
 where we quotient by the equivalence relation, generated by $(0,x) \sim f(x)$.
 This means that the inclusion $X \hookrightarrow M_f$ puts $X$ to the "{}top of the cyllinder"{}, and we also have a deformation retraction from $M_f$ to $Y$, which we get by sliding all these points down to their image in $Y$.
 
-Like in the textbook, we form a long exact sequence:
+\noindent
+Long exact sequence for relative homology gives:
 \begin{equation*}
 \dots \to H_k(X) \to H_k(M_f) \to H_k(M_f,X) \to H_{k-1}(X) \to \dots
 \end{equation*}
@@ -527,6 +601,7 @@ X_4 = \mathcal{P}(\{1,2,3,4,5,6,7,8,9\})
 \end{equation*}
 Other changes happen at integer values of $r$ between $1$ and $4$. Since listing all the simplices and constructing the corresponding boundary maps could get tedious, I've decided to finish the task using appropriate software.
 
+\noindent
 I have used the Dionysus 2 Python library\footnote{\url{https://mrzv.org/software/dionysus2/index.html}}. Commented code below:
 \subsubsection*{Code}
 \pythonexternal{compute.py}
@@ -608,12 +683,12 @@ Now, using Künneth theorem for magnitude homology (Theorem 21 in the paper) we 
 \begin{equation*}
 0 \to MH_{*,*}(G) \otimes MH_{*,*}(H) \to MH_{*,*}(G \square H) \to \mathrm{Tor}(MH_{*-1,*}(G),MH_{*,*}(H)) \to 0
 \end{equation*}
-Picking $G=H = K_2$ we have $\mathrm{Tor}(MH_{*-1,*}(G),MH_{*,*}(H)) = 0$, as the magnitude homologies of $K_2$ are torsion-free. So we are left with an isomorphism:
+Picking $G=H = K_2$ we have $\mathrm{Tor}(MH_{*-1,*}(K_2),MH_{*,*}(K_2)) = 0$, because we know that $MH_{k.l} = 0$ for $k \neq l$, so one of the two arguments to $\mathrm{Tor}$ is going to be $0$ (as the two arguments differ by one in first subscript). 
+So we are left with an isomorphism:
 $MH_{*,*}(K_2 \square K_2) \cong MH_{*,*}(K_2) \otimes MH_{*,*}(K_2)$.
 We get $MH_{k,l}(K_2 \square K_2)$ equals $0$ if $k \neq l$ or $\mathbb{Z}^2 \otimes \mathbb{Z}^2 \cong \mathbb{Z}^4$ otherwise.
 
-Since the resulting homology groups are still torsion-free we can use the same formula to finally compute:
-
+Repeating the argument, we can again use the formula to deduce $MH_{*,*} (G) \cong MH_{*,*} (K_2 \square K_2) \otimes MH_{*,*} (K_2)$ and we get
 $MH_{k,l}(G) = 0$ if $k \neq l$ and $MH_{k,l}(G) = \mathbb{Z}^8$ otherwise.
 
 
