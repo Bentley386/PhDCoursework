@@ -379,64 +379,82 @@ Suppose $(E^r,d^r)$ is a spectral sequence that converges to $(H_n)_n$.
 For the first case, the second page of a spectral sequence looks like this:
 
 \begin{center}\begin{tikzcd}
- \cdots & 0 & E_{0,3}^2  & E_{1,3}^2  & 0  & \cdots \\
-  \cdots & 0 & E_{0,2}^2  & E_{1,2}^2  & 0  &\cdots \\
- \cdots & 0 &  E_{0,1}^2  & E_{1,1}^2  & 0  &\cdots \\
- \cdots & 0 &  E_{0,0}^2  & E_{1,0}^2 & 0 & \cdots \\
+ \cdots & \vdots &  \vdots  &  \vdots & \vdots  & \cdots \\
+ \cdots & 0 & E_{0,3}^2  \arrow{llu}  & E_{1,3}^2 \arrow{llu} & 0  \arrow{llu}& \cdots \arrow{llu} \\
+  \cdots & 0 & E_{0,2}^2 \arrow{llu}  & E_{1,2}^2  \arrow{llu}  & 0  \arrow{llu}  &\cdots \arrow{llu} \\
+ \cdots & 0 &  E_{0,1}^2  \arrow{llu} & E_{1,1}^2   \arrow{llu}& 0   \arrow{llu} &\cdots \arrow{llu}\\
+ \cdots & 0 &  E_{0,0}^2  \arrow{llu} & E_{1,0}^2  \arrow{llu}& 0  \arrow{llu} & \cdots  \arrow{llu}\\
+ \cdots & \vdots &  \vdots \arrow{llu} &  \vdots \arrow{llu} & \vdots  \arrow{llu} & \cdots \arrow{llu}\\
 \end{tikzcd}\end{center}
 
-All the differential maps on the second page are zero maps: For example $d_{0,q}^2$ maps from $E_{0,q}^r$ to $E_{-2,q+1}^2 = 0$. Similar conclusion can be made for $d_{1,q}^r$. Likewise, the map of which codomain is, for example, $E_{0,q}^r$ is also a zero map, as it is $d_{2,q-1}^2 : E_{2,q-1}^2 \to E_{0,q}^2$, and the domain is $0$. From this it holds that $E^3_{p,q} \cong H_{p,q}(E^2_{p,q}) = E^2_{p,q}/0 \cong E^2_{p,q}$. A similar argument shows that also $E^3_{p,q} = E^4_{p,q}$ and, actually, the spectral sequence stabilises already at the second page: $E^\infty_{p,q} = E^2_{p,q}$.
+All the differential maps on the second page are zero maps, which we can easily see from the above diagram as in all cases either the domain or the codomain of $d_{p,q}$ is $0$. It follows that $E^3_{p,q} \cong H_{p,q}(E^2_{p,q}) = E^2_{p,q}/0 \cong E^2_{p,q}$. A similar argument shows that also $E^3_{p,q} = E^4_{p,q}$ and, actually, the spectral sequence stabilises already at the second page: $E^\infty_{p,q} = E^2_{p,q}$.
+
+\noindent
 Since by assumption, the spectral sequence converges to $H_n$ we have:
 $E^2_{p,q} \cong F_p H_n / F_{p-1} H_n$ for $n=p+q$,
 where the filtration is:
 $0 = F_{-1} H_n \subseteq \dots \subseteq F_p H_n \subseteq \dots \subseteq F_n H_n = H_n$.
-So we have: $E^2_{0,n} \cong F_0 H_n / F_{-1} H_n \cong F_0 H_n$
-$E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n}$ and $0 \cong F_p H_n / F_{p-1} H_n$ for $p>1$.
-This implies $H_n = F_n H_n \cong F_{n-1} H_n \cong \dots .. \cong F_1 H_n$.
+So we have: 
+\begin{align*}
+&E^2_{0,n} \cong F_0 H_n / F_{-1} H_n \cong F_0 H_n \\
+&E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n} \\
+& 0 \cong F_p H_n / F_{p-1} H_n, \  p>1
+\end{align*}
+Last equation implies implies $H_n = F_n H_n \cong F_{n-1} H_n \cong \dots .. \cong F_1 H_n$.
 So we actually have $E^2_{1,n-1} \cong H_n / E_{0,n}^2$. We can thus build a short exact sequence:
 \begin{equation*}
 0 \to E_{0,n}^2 \to H_n \to E_{1,n-1}^2 \to 0,
 \end{equation*}
 where the first arrow is the zero map, the second arrow is inclusion of $E_{0,n}^2$ into $H_n$, the third arrow the projection $H_n \to H_n/E_{0,n}^2$ and the final arrow the zero map. It is easy to see that this sequence is exact.
 
+
 Now let's see what happens if we instead have $E^2_{p,q} = 0$ for $q \neq 0,1$. In this case the second page looks like:
 
 \begin{center}\begin{tikzcd}
-\vdots & \vdots & \vdots & \vdots \\
-0 & 0 & 0 & 0 \\
-E_{0,1}^2 & E_{1,1}^2 & E_{2,1}^2 & E_{3,1}^2 \\
-E_{0,0}^2 & E_{1,0}^2 & E_{2,0}^2 & E_{3,0}^2 \\
-0 & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \vdots \\
+\cdots & \vdots & \vdots & \vdots & \vdots & \cdots\\
+\cdots & 0 & 0  \arrow{llu} & 0  \arrow{llu} & 0  \arrow{llu}& \cdots  \arrow{llu}\\
+\cdots & E_{0,1}^2 & E_{1,1}^2  \arrow{llu}& E_{2,1}^2 \arrow{llu} & E_{3,1}^2 \arrow{llu} & \cdots  \arrow{llu} \\
+\cdots & E_{0,0}^2 & E_{1,0}^2  \arrow{llu} & E_{2,0}^2 \arrow{llu}  & E_{3,0}^2 \arrow{llu} & \cdots  \arrow{llu}\\
+\cdots & 0 & 0  \arrow{llu}& 0 \arrow{llu} & 0 \arrow{llu} & \cdots  \arrow{llu} \\
+\cdots & \vdots & \vdots  \arrow{llu}& \vdots  \arrow{llu} & \vdots  \arrow{llu}& \cdots  \arrow{llu} \\
 \end{tikzcd}\end{center}
 
 This time we have some non-zero differential maps. Namely the maps of the form $d^2_{p,0}: E^2_{p,0} \to E^2_{p-2,1}$.
-This implies the third page of our spectral sequence looks like this:
+This means we also have to consider the third page of our spectral sequence, which looks like this:
 
 \begin{center}\begin{tikzcd}
-\vdots & \vdots & \vdots & \vdots \\
-0 & 0 & 0 & 0 \\
-E_{0,1}^3 & E_{1,1}^3 & E_{2,1}^3 & E_{3,1}^3 \\
-E_{0,0}^3 & E_{1,0}^3 & E_{2,0}^3 & E_{3,0}^3 \\
-0 & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \vdots \\
+\cdots & \vdots & \vdots & \vdots & \vdots & \cdots\\
+\cdots & 0 & 0 & 0 & 0  &\cdots\\
+\cdots &E_{0,1}^3 & E_{1,1}^3 & E_{2,1}^3  \arrow{llluu} & E_{3,1}^3  \arrow{llluu} &\cdots  \arrow{llluu}\\
+\cdots &E_{0,0}^3 & E_{1,0}^3 & E_{2,0}^3  \arrow{llluu} & E_{3,0}^3  \arrow{llluu}&  \cdots  \arrow{llluu}\\
+\cdots &0 & 0 & 0   \arrow{llluu}& 0  \arrow{llluu} &\cdots  \arrow{llluu}\\
+\cdots &\vdots & \vdots & \vdots  \arrow{llluu}& \vdots  \arrow{llluu} & \cdots  \arrow{llluu}\\
 \end{tikzcd}\end{center}
 
-The zeros from the 2nd page remain zeros, as the maps involved are the zero maps (similar argument to the first part of this exercise),
-while for $E^3_{p,0}$ we have: $E^3_{p,0} \cong H_{p,0}(E^2_{p,0}) = \mathrm{ker} (d^2_{p,0})/0 \cong \mathrm{ker} (d^2_{p,0})$ and
-$E^3_{p,1} \cong H_{p,1}(E^2_{p,1}) = E^2_{p,1} / \mathrm{im}(d^2_{p+2,0})$. The maps $d^3_{p,q} : E^3_{p,q} \to E^3_{p-3,q+2}$ are all zero, similarly as in the first part of the exercise. So the spectral sequence stabilises and we have $E^\infty_{p,q} = E^3_{p,q}$.
-Now similarly as in first part of the exercise we have: $E^3_{n,0} = E^\infty_{n,0} \cong F_n H_n/F_{n-1}H_n \cong H_n/F_{n-1}H_n$ and $E^3_{n-1,1} \cong F_{n-1} H_n / F_{n-2} H_n$ and $E^3_{n-k,k} = 0 \cong F_{n-k} H_n / F_{n-k-1} H_n$ for $k>1$. Therefore $F_{n-2} H_n \cong F_{n-3} H_n \cong ... \cong F_{-1} H_n = 0$ and $E^3_{n-1,1} \cong F_{n-1} H_n$. So we have $E^3_{n,0} \cong H_n/E^3_{n-1,1}$ and from this we get, like in the first part of the exercise, the short exact sequence
+As in the first part of the exercise, all of the maps involved are zero so the sequence stabilises and we have $E^\infty_{p,q} = E^3_{p,q}$.
+
+The $E_{p,q}^2$ for $q \neq 0,1$ that were zero before, remain zero also on the third page, while for the others we have:
+\begin{align*}
+& E^3_{p,0} \cong H_{p,0}(E^2_{p,0}) = \mathrm{ker} (d^2_{p,0})/0 \cong \mathrm{ker} (d^2_{p,0}) \\
+& E^3_{p,1} \cong H_{p,1}(E^2_{p,1}) = E^2_{p,1} / \mathrm{im}(d^2_{p+2,0}) \\
+\end{align*} 
+Now similarly as in first part of the exercise we have: 
+\begin{align*}
+&E^3_{n,0} = E^\infty_{n,0} \cong F_n H_n/F_{n-1}H_n \cong H_n/F_{n-1}H_n \\
+& E^3_{n-1,1} \cong F_{n-1} H_n / F_{n-2} H_n \\
+&E^3_{n-k,k} = 0 \cong F_{n-k} H_n / F_{n-k-1} H_n, \ k>1\\
+\end{align*}
+ Therefore $F_{n-2} H_n \cong F_{n-3} H_n \cong ... \cong F_{-1} H_n = 0$ and $E^3_{n-1,1} \cong F_{n-1} H_n$. So we have $E^3_{n,0} \cong H_n/E^3_{n-1,1}$ and from this we get, like in the first part of the exercise, the short exact sequence:
 \begin{equation*}
 0 \to E^3_{n-1,1} \to H_n \to E^3_{n,0} \to 0
 \end{equation*}
-
-
 Also, from $E^3_{p,0} \cong \mathrm{ker}(d^2_{p,0})$ and $E^3_{p,1} \cong E^2_{p,1}/\mathrm{im}(d^2_{p+2,0})$ we have the exact sequence
 \begin{equation*}
 0 \to E^3_{p,0} \to E^2_{p,0} \to E^2_{p-2,1} \to E^3_{p-2,1} \to 0.
 \end{equation*}
 The first map is, as usual, the zero map. The second arrow is the inclusion of $\mathrm{ker}(d^2_{p,0}) \hookrightarrow E^2_{p,0}$. The third arrow is the differential map $d^2_{p,0}$, and fourth the quotient projection $E^2_{p-2,1} \to E^2_{p-2,1}/\mathrm{im}(d^2_{p,0})$. It is easy to check that this sequence really is exact.
 
+\noindent
 Let us write down again, the long exact sequence we are trying to derive:
 \begin{equation*}
 \dots \to H_{n+1} \xrightarrow{f_1} E^2_{n+1,0} \xrightarrow{f_2}  E^2_{n-1,1} \xrightarrow{f_3}  H_n \xrightarrow{f_4}  E^2_{n,0} \xrightarrow{f_5}  E^2_{n-2,1} \xrightarrow{f_6}  H_{n-1} \to \dots
@@ -471,23 +489,27 @@ All other $C_{p,q}$ are equal to zero.
 The double complex is equal to the zeroth page of the Mayer-Vietoris spectral sequence:
 
 \begin{center}\begin{tikzcd}
- \cdots & 0 &C_3(A) \oplus C_3(B)  \arrow[d] & C_3(A \cap B)  \arrow[d]& 0  & \cdots \\
-  \cdots & 0 & C_2(A) \oplus C_2(B)  \arrow[d] & C_2(A \cap B)  \arrow[d] & 0  &\cdots \\
- \cdots & 0 &  C_1(A) \oplus C_1(B)   \arrow[d] & C_1(A \cap B)  \arrow[d] & 0  &\cdots \\
- \cdots & 0 &  C_0(A) \oplus C_0(B)   & C_0(A \cap B)  & 0 & \cdots \\
- \cdots & 0 & 0 & 0 & 0 & \cdots \\
+\vdots & \vdots \arrow{d} & \vdots  \arrow{d}& \vdots \arrow{d}& \vdots  \arrow{d}& \vdots \\
+ \cdots & 0  \arrow{d} &C_3(A) \oplus C_3(B)  \arrow{d} & C_3(A \cap B)  \arrow{d}& 0 \arrow{d}  & \cdots \\
+  \cdots & 0 \arrow{d}& C_2(A) \oplus C_2(B)  \arrow{d} & C_2(A \cap B)  \arrow{d}& 0 \arrow{d} &\cdots \\
+ \cdots & 0 \arrow{d} &  C_1(A) \oplus C_1(B)  \arrow{d} & C_1(A \cap B) \arrow{d} & 0 \arrow{d} &\cdots \\
+ \cdots & 0 \arrow{d}&  C_0(A) \oplus C_0(B)  \arrow{d}  & C_0(A \cap B) \arrow{d} & 0 \arrow{d} & \cdots \\
+ \cdots & 0 \arrow{d} & 0 \arrow{d} & 0  \arrow{d}& 0 \arrow{d} & \cdots \\
+\vdots & \vdots & \vdots & \vdots& \vdots & \vdots \\
 \end{tikzcd}\end{center}
 
 \noindent
-with the vertical maps come from the differentials $C_q \to C_{q-1}$ (other vertical maps are zero and not displayed).
+with the nonzero vertical maps come from the differentials $C_q \to C_{q-1}$.
 This also tells us (also from the lectures) how the first page looks like:
 
 \begin{center}\begin{tikzcd}
- \cdots & 0 &H_3(A) \oplus H_3(B)  & H_3(A \cap B) \arrow[l] & 0  & \cdots \\
-  \cdots & 0 & H_2(A) \oplus H_2(B)  & H_2(A \cap B) \arrow[l]& 0  &\cdots \\
- \cdots & 0 &  H_1(A) \oplus H_1(B)  & H_1(A \cap B) \arrow[l]& 0  &\cdots \\
- \cdots & 0 &  H_0(A) \oplus H_0(B)  & H_0(A \cap B) \arrow[l]& 0 & \cdots \\
- \cdots & 0 & 0 & 0 & 0 & \cdots \\
+\vdots & \vdots & \vdots & \vdots& \vdots & \vdots \\
+ \cdots & 0 \arrow[l] &H_3(A) \oplus H_3(B) \arrow[l] & H_3(A \cap B) \arrow[l] & 0 \arrow[l] & \cdots \arrow[l]\\
+  \cdots & 0 \arrow[l]& H_2(A) \oplus H_2(B)  \arrow[l] & H_2(A \cap B) \arrow[l]& 0 \arrow[l]  &\cdots\arrow[l] \\
+ \cdots & 0 \arrow[l]&  H_1(A) \oplus H_1(B) \arrow[l] & H_1(A \cap B) \arrow[l]& 0 \arrow[l] &\cdots \arrow[l]\\
+ \cdots & 0 \arrow[l]&  H_0(A) \oplus H_0(B) \arrow[l] & H_0(A \cap B) \arrow[l]& 0 \arrow[l]& \cdots \arrow[l]\\
+ \cdots & 0 \arrow[l]& 0\arrow[l] & 0\arrow[l] & 0\arrow[l] & \cdots \arrow[l] \\
+\vdots & \vdots & \vdots & \vdots& \vdots & \vdots \\
 \end{tikzcd}\end{center}
 
 \noindent
@@ -502,11 +524,13 @@ where the map $d_n$ is the horizontal map coming from the nerve, but we will not
 Let us also write the second page of the spectral sequence:
 
 \begin{center}\begin{tikzcd}
- \cdots & 0 & E_{0,3}^2  & E_{1,3}^2  & 0  & \cdots \\
-  \cdots & 0 & E_{0,2}^2  & E_{1,2}^2  & 0  &\cdots \\
- \cdots & 0 &  E_{0,1}^2  & E_{1,1}^2  & 0  &\cdots \\
- \cdots & 0 &  E_{0,0}^2  & E_{1,0}^2 & 0 & \cdots \\
- \cdots & 0 & 0 & 0 & 0 & \cdots \\
+\vdots & \vdots & \vdots & \vdots& \vdots & \vdots \\
+ \cdots & 0 & E_{0,3}^2 \arrow{llu} & E_{1,3}^2 \arrow{llu} & 0 \arrow{llu}  & \cdots \\
+  \cdots & 0 & E_{0,2}^2  \arrow{llu} & E_{1,2}^2 \arrow{llu} & 0 \arrow{llu}  &\cdots \arrow{llu} \\
+ \cdots & 0 &  E_{0,1}^2  \arrow{llu}& E_{1,1}^2  \arrow{llu} & 0 \arrow{llu}  &\cdots \arrow{llu}\\
+ \cdots & 0 &  E_{0,0}^2 \arrow{llu} & E_{1,0}^2 \arrow{llu} & 0 \arrow{llu} & \cdots \arrow{llu}\\
+ \cdots & 0 & 0 \arrow{llu} & 0 \arrow{llu} & 0 \arrow{llu} & \cdots \arrow{llu}\\
+\vdots & \vdots & \vdots \arrow{llu}& \vdots \arrow{llu}& \vdots \arrow{llu} & \vdots \arrow{llu} \\
 \end{tikzcd}\end{center}
 
 Here, like in the previous exercise, $E^2_{1,q} \cong \mathrm{ker}(d_q)$ and $E^2_{0,q} \cong (H_q(A) \oplus H_q(B)) / \mathrm{im}(d_q)$.
@@ -514,14 +538,20 @@ This gives us an exact sequence:
 \begin{equation*}
 0 \to E^2_{1,q} \to H_q(A \cap B) \to H_q(A) \oplus H_q(B) \to E^2_{0,q} \to 0,
 \end{equation*}
-the first map is a zero map, the second map is inclusion from $\mathrm{ker}(d_q)$ to $H_q(A \cap B)$, the third map is just $d_n$, and the fourth map the quotient projection by $\mathrm{im}(d_q)$. It can be easily checked that this sequence is exact.
+the first map is a zero map, the second map is inclusion from $\mathrm{ker}(d_q)$ to $H_q(A \cap B)$, the third map is just $d_q$, and the fourth map the quotient projection by $\mathrm{im}(d_q)$. It can be easily checked that this sequence is exact.
 
-Additionally, as all the maps on the second page are zero maps, the sequence stabilises at the second page: $E^2_{p,q} \cong E^\infty_{p,q}$. Since we know it converges to homology of $X=A\cup B$, we have: $E^2_{0,n} \cong F_0 H_n/F_{-1} H_n \cong F_0 H_n$. 
-We also have $E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n}$. Additionally, as for example $0 \cong E^2_{2,n-2} \cong F_2/F_1$ implies $F_2 \cong F_1$, and similar for $F_p, p>2$. We have $F_1 H_n \cong F_n H_n \cong H_n$. So we have $E^2_{1,n-1} \cong H_n / E^2_{0,n}$ and therefore an exact sequence:
+Additionally, as all the maps on the second page are zero maps, the sequence stabilises at the second page: $E^2_{p,q} \cong E^\infty_{p,q}$. Since we know it converges to homology of $X=A\cup B$, we have: 
+\begin{align*}
+& E^2_{0,n} \cong F_0 H_n/F_{-1} H_n \cong F_0 H_n \\ 
+& E^2_{1,n-1} \cong F_1 H_n / F_0 H_n \cong F_1 H_n / E^2_{0,n} \\
+& 0 \cong E^2_{p,n-p} \cong F_p H_n/F_{p-1} H_n, \  p>1\\
+\end{align*}
+We have $F_1 H_n \cong F_n H_n \cong H_n$. So we have $E^2_{1,n-1} \cong H_n / E^2_{0,n}$ and therefore an exact sequence:
 \begin{equation*}
 0 \to E_{0,n}^2 \to H_n(X) \to E_{1,n-1}^2 \to 0
 \end{equation*}
 
+\noindent
 Putting the two sequences together we have a long exact sequence:
 \begin{equation*}
 \dots \to H_{n+1}(X) \to H_{n}(A \cap B) \to H_{n}(A) \oplus H_{n}(B) \to H_n(X) \to H_{n-1}(A \cap B) \to \dots \to H_0(X) \to 0,
