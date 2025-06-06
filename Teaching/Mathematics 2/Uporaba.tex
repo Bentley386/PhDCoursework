@@ -1,0 +1,101 @@
+\documentclass[12pt]{article}
+
+% Basic packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern} % Clean font
+\usepackage{enumitem} % Customizable lists
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Primeri uporabe obravnavane snovi v fiziki in inženiringu}
+\author{} % Optional
+\date{}   % Optional
+
+\begin{document}
+
+\maketitle
+
+\section*{}
+Tekom izvajanja tega predmete, se je večkrat pojavilo vprašanje o konkretnih aplikacijah obravnavane snovi, zaradi česar je nastal tale dokument, ki bo upamo služil kot dovolj dobra motivacija.
+
+Na splošno seveda velja, da je učenje matematike koristno iz stališča, da se študent bolje navadi nekako logično in abstraktno razmišljati. Velik del predmeta Matematika II je tudi nadgradnja lanskega predmeta Matematika I in lahko služi kot dodatno ponavljanje/izboljšanje spretnosti pri sorazmerno rutinskih operacijah kot so npr. integrali.
+
+Splača se poudariti še, da je snov, obravnavana pri Matematiki 2, osnove za kakšrnokoli nadaljno učenje matematike. Ta ni omejena le na teoretike - tudi eksperimentalni fiziki morajo dobro poznati obravnavano teorijo, nekatere npr. numerične metode / metode podatkovne analize zahtevajo napredno matematično podlago ipd. Navsezadnje pa dobra podlaga tudi olajša branje znanstvenih člankov, česar se tudi eksperimentalni fiziki težko izognejo.
+
+V nadaljevanju bomo poskusili za vsako obravnavnao poglavje podati nekaj primerov, samo za občutek - v resnici je primerov še veliko več.
+
+\section*{Evklidska Metrika}
+Prvo poglavje služi bolj kot uvod v metrične prostore, kar se obravnava proti koncu semestra. Pa vendarle imamo tudi pri evklidski metriki nekaj primerov, kjer srečamo (netrivialno) odprtost/zaprtost množic
+\begin{itemize}[leftmargin=1.5em]
+    \item Pri parcialnih diferencialnih enačbah, ki opisujejo večino fizikalnih zakonov je pogosto treba ločiti notranjost (ki je odprta) dane množice. Rob je lahko tudi netrivialen, npr. približek "{}točkovnega izvira"{} pri problemu simulacije elektromagnetnega valovanja.
+    \item Pri matematični optimizaciji (npr. minimizacija) lahko postane odprtost množice dopustnih rešitev (intuitivno, kandidatov za minimum) ključna za delovanje nekaterih metod (npr. KKT pogoji, ki se pojavijo tudi pri podatkovni analizi).
+\end{itemize}
+
+\section*{Funkcije več spremenljivk in preslikave}
+Glede na to, da živimo v treh prostorskih dimenzijah (+ čas), so funkcije več spremenljivk za opis narave pogosto veliko primernejše. Veliko fizikalnih zakonov, ki ste jih obravnavali lani se v resnici v najsplošnejši obliki zapiše kot enačba za neko funkcijo več spremenljivk.
+\begin{itemize}[leftmargin=1.5em]
+    \item Fizikalni primeri skalarnih polj: Temperatura $T(x,y,z,t)$, tlak $p(x,y,z,t)$, (električni) potencial $\Phi (x,y,z,t)$,...
+    \item Fizikalni primeri vektorskih polj: Hitrost $\vec{v}(x,y,z,t)$, sila $\vec{F}(x,y,z,t)$, Elekrično in magnetno polje...
+    \item V posplošitvah znanih fizikalnih zakonov (npr. Newtnovega zakona) se ponavadi pojavijo parcialni odvodi, gradienti ipd.
+    \item Gradient in verižno pravilo igrata tudi ključno vlogo v učenju nevronskih mrež, ki se dandanes tudi v fiziki veliko uporabljajo.
+    \item Totalni diferencial nam da splošen recept za račun neke "{}infinitizemalne"{} količine. To lahko med drugim izkoristimo tudi za izračun merskih napak (posplošitev formul kot so napaka kvocienta/produkta na bolj komplicirane funkcije).
+    \item Taylorjev razvoj v več spremenljivkah se lahko uporabi v podobnih primerih kot vam že poznan Taylorjev razvoj. Primer iz matematične fizike: Nabit delec lebdi v ravnovesju v sredini kondenzatorja - če ga izmaknemo bo zanihal, kar analiziramo z Taylorjevim razvojem v več spremenljivkah do prvega reda (linearni približek)
+    \item Preslikave, Jacobiani bodo postali relevantni pri obravnavi dvojnih/trojnih integralov. Tudi že prej omenjene nevronske mreže ponavadi preslikave, ki jih odvajamo, ponavadi podajo v matrični obliki.
+    \item Lokalni in vezani ekstremi so spet primer matematične optimizacije, ki se pogosto pojavlja v praksi, npr. v finančni matematiki (maksimiziraj profit ob pogoju....)
+\end{itemize}
+
+\section*{Integrali s parametrom}
+\begin{itemize}[leftmargin=1.5em]
+    \item Primere iz fizike že poznate le, da niste še razmišljali na takšen način. Npr. delo, ki ga opravimo ob vlečenju vzeti $A(k) = \int_{x_0}^{x_1} -k x \textup{d}x$
+    \item Kot veste je računsko odvajanje pogosto enostavnejše od integriranja. To lahko izkoristimo na primerih, ki so podobni naslednjemu znanemo primeru: Recimo, da imamo električni potencial, ki ga povzroča neka porazdelitev naboja in nas zanima $\vec{E}(x,y,z)$. Potencial se lahko izrazi kot $U(x,y,z) \propto \int \frac{\rho(x',y',z') dV}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}}$. V praksi moramo ta integral izračunati numerično, in potem dobljeno ŠE odvajati (spet numerično), kar lahko privede do velikih napak. Vendar, če znamo odvajat po parametru vemo, da npr.  $E_x = - \frac{\partial U}{\partial x} =  \propto -\int \frac{(x-x') \rho(x',y',z') dV}{\sqrt{(x-x')^2+(y-y')^2+(z-z')^2}^3}$ in moramo numerično izračunati le integral (brez odvoda).
+\end{itemize}
+
+
+\section*{Večkratni integrali}
+\begin{itemize}[leftmargin=1.5em]
+    \item Podobno kot prej, ker je realni svet več kot enodimenzionalen, imamo pogosto opravka z večkratnimi integrali. Konkretni primeri podo podani pri krivuljnih/ploskovnih integralih.
+    \item Večkratni integrali se tudi pogosto pojavljajo v verjetnosti - pravzaprav je verjetnost v splošnem ena izmed uporabnih motivacij za analizo v več spremenljivkah.
+    \item Eden izmed fizikalno zanimivih primerov bo vztrajnostni moment krogle, kjer le preko integrala dobimo intuicijo za tisti predfaktor $2/5$.
+\end{itemize}
+
+\section*{Metrični prostori}
+\begin{itemize}[leftmargin=1.5em]
+    \item Metrike v funkcijskih prostorih so uporabne v numeričnih izračunih - zanima nas npr. kako natančen je naš (funkcijski) približek dane funkcije 
+    \item Navigacijski sistemi minimizarje nekakšne taxicab (L1) ali pa še bolj abstratkne (npr. iz teorije grafov) metrike. Evklidska metrika je tu zračna razdalja, kar je manj uporabno.
+    \item Spet je tu ogromna motivacija lahko strojno učenje, kjer ponavadi učenje razumemo kot minimizacijo neke metrike (funkcijske ali ne, lahko gledamo celo neke vrste razdaljo med porazdelitvami) . Tudi intuicija za npr. redukcijo dimenzij pogosto sloni na nečemu podobnemu kot "{} hočemo da se primerna metrika približno ohrani"{}. 
+    \item Pri strojnem učenju je pomemben koncept tudi regularizacija, ki se jo ponavadi poda v eni izmed $\ell^p$ metrik.
+   \item Banachovo skrčitveno načelo uporabimo za izpeljavo navadne iteracije - metode s katero lahko numerično rešujemo nelinearne enačbe in je nekako osnovni korak pred učenjem težjih (in v praksi pogosto uporabljenih) metod, npr. Newtnove.
+    \item Kot zanimivost - topologija, ki jo ponavadi povezujemo z zelo abstraktno matematiko nedavno pridobiva kar nekaj konkretnih aplikacij - uporablja se za študij konfiguracij (npr. robotske roke) v robotiki pa tudi za analizo podatkov - topološka analiza podatkov.
+\end{itemize}
+
+\section*{Fourierova vrsta}
+Fourierova vrsta je med drugim testno povezana s Fourierovo transformacijo, ki ima v fiziki in inženirstvu ogromno aplikacij.
+\begin{itemize}[leftmargin=1.5em]
+    \item V fiziki zelo uporabna, saj ponavadi razumemo (ali pa nas zanima le) obnašanje za določene frekvenčne komponente signala.
+    \item Sipalni preseki npr. so pogosto podani v odvisnosti od frekvence in pri raznih izpeljavah ter konkretnih izračunih je pogosto vmes Fourierova vrsta (oziroma Fourierova transformacija).
+    \item Tudi v kvantni mehaniki in optiki pogosto gremo v frekvenčno sliko.
+    \item Poleg same spektralne analize (zanima nas kje so kakšni vrhovi/resonance, disperzijska relacija...), lahko Fourierovo transformacijo uporabimo tudi za filtriranje signalov, vključno z npr. Gaussian Blur v grafiki.
+    \item Zabaven primer Dr. Čoparja - Z znanjem Fourierove analize, bi lahko v minuti končal praktikumsko vajo akustični resonator - prišel bi v sobo, udaril po škatli, da se vzbudijo vse možne resonance, prebran signal pretvoril v Fourierovo sliko in takoj iz spektra odčital resonančne frekvence.
+    \item S fourierovo transformacijo lahko tudi učinkovito računamo konvolucijo (prej omenjena filtracija signalov) in korelacijo, kar se uporablja celo v npr. računalniški miški (izračun korelacije za določitev smeri/hitrosti premika)
+    \item Prof. Širca je enkrat slavno izjavil, da je eden izmed dveh najpomembnejših algoritmov FFT (Fast Fourier Transform)   (kot zanimivost - drugi je bil SVD).
+\end{itemize}
+
+\section*{Krivulje in Ploskve}
+\begin{itemize}[leftmargin=1.5em]
+    \item Krivulje - v fiziki trajektorije, postane lahko netrivialno v kontekstu Einstenove splošne relativnosti.
+    \item Spremljajoči trieder ima nekakšno aplikacijo v računalniški grafiki - če imamo podano trajektorijo nas pogosto zanima tudi kako se določen objekt med potovanjem vrti - kar nam ravno pove spremljajoči trieder.
+    \item V fiziki se ukrivljenosti krivulj/ploskev naravno pojavijo v elastomehaniki (palice, plošče) pa tudi v biofiziki (npr. zvijanje proteinov).
+    \item Fizkalni primeri krivuljnih integralov: Delo, Dolžinska gostota (mase, naboja), Biot-Savart zakon
+    \item Fizikalni primeri ploskovnih integralov: Površrinska gostota, površinska napetost (npr. milnice), pretoki
+    \item Fizikalen primer obojega + integralskih izrekov - Maxwellove enačbe za opis elektromagnetizma.
+\end{itemize}
+
+\section*{Diferencialne enačbe}
+\begin{itemize}[leftmargin=1.5em]
+    \item Obstoj in enoličnost rešitve je lahko resen (ne zgolj matematični) problem. Veliko enačb nima enolične rešitve in se lahko zgodi, da npr. najdemo rešitev, ki ni fizikalno smiselna.
+    \item Večina fizikalnih zakonov je podana z diferencialnimi enačbami (Newtnov zakon, elastomehanika, hidrodinamika, kvantna mehanika..)
+    \item Diferencialne enačbe se pojavijo tudi v drugih disciplinah - Populacijski modeli, modeli trga in npr. variacijski račun (optimizacijske metode)...
+\end{itemize}
+
+\end{document}
